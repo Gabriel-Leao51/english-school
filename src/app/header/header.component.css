@@ -1,0 +1,87 @@
+.header {
+  background: linear-gradient(to right, #214b8c, #3498db);
+  color: white;
+  padding: 1rem 0;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  border-radius: 50%;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-family: Raleway;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Agrupando nav e botões */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav li {
+  margin-right: 20px; /* Espaçamento entre os itens do nav */
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  transform: scale(1.1);
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  margin-left: 20px; /* Espaçamento entre nav e botões */
+}
+
+.btn {
+  background-color: #fff;
+  color: #2196f3;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #155589;
+  transition-delay: 0.1s;
+}
