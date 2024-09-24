@@ -1,0 +1,72 @@
+.main-section {
+  position: relative; /* Para posicionar o slogan sobre a imagem */
+  text-align: center; /* Centraliza o texto dentro do container */
+  overflow: hidden; /* Impede que a imagem ultrapasse o container */
+  margin-top: 0.3rem;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-destaque-1)
+  );
+  border-radius: 16px;
+}
+
+.image-container {
+  transform: translate(20%);
+  position: relative; /* Permite posicionar elementos dentro do container da imagem */
+}
+
+.img-fluid {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  clip-path: ellipse(80% 70% at 50% 30%);
+  width: 50%; /* Largura que a imagem ocupa do container */
+}
+
+.slogan-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -135%,
+    -90%
+  ); /* Orienta horizontalmente e verticalmente */
+  color: white;
+  z-index: 10; /* Garante que o slogan fique acima da imagem */
+  text-align: left;
+}
+
+.slogan {
+  font-family: Raleway;
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
+}
+
+.btn {
+  background-color: var(--cor-secundaria);
+  width: fit-content;
+  color: var(--cor-texto-primaria);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  color: var(--cor-fundo-alternativa);
+  background-color: var(--cor-secundaria-darker);
+  transition-delay: 0.1s;
+}
+
+@media (max-width: 768px) {
+  .slogan {
+    font-size: 2em;
+  }
+  .left-content,
+  .col-md-6 {
+    text-align: center; /* Centraliza o conteúdo em telas menores */
+  }
+}

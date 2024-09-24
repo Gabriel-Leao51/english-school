@@ -1,7 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Lora");
+
+:root {
+  /* Paleta Principal */
+  --cor-primaria: #4169e1; /* Azul Real */
+  --cor-secundaria: #ffd700; /* Dourado */
+  --cor-secundaria-darker: #d7bb1e; /* Dourado */
+  --cor-fundo: #ffffff; /* Branco */
+  --cor-fundo-alternativa: #f5f5dc; /* Creme */
+
+  /* Paleta Secundária */
+  --cor-destaque-1: #006400; /* Verde Escuro */
+  --cor-destaque-2: #800000; /* Vermelho Escuro */
+
+  /* Cores Neutras */
+  --cor-texto-primaria: #212529; /* Cinza Escuro */
+  --cor-texto-secundaria: #6c757d; /* Cinza Médio */
+}
 
 body {
-  background-color: azure;
+  background: linear-gradient(to left, var(--cor-fundo), azure);
   font-family: "Roboto", sans-serif;
 }

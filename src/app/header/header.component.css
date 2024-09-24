@@ -1,6 +1,6 @@
 .header {
-  background: linear-gradient(to right, #214b8c, #3498db);
-  color: white;
+  background: linear-gradient(to right, var(--cor-primaria), var(--cor-fundo));
+  color: var(--cor-fundo);
   padding: 1rem 0;
   border-radius: 16px;
   display: flex;
@@ -31,6 +31,7 @@
   font-family: Raleway;
   font-size: 1.5rem;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin: 0;
 }
 
@@ -58,7 +59,7 @@
 }
 
 .nav a {
-  color: white;
+  color: var(--cor-texto-primaria);
   text-decoration: none;
   font-weight: 500;
 }
@@ -69,8 +70,8 @@
 }
 
 .btn {
-  background-color: #fff;
-  color: #2196f3;
+  background-color: var(--cor-fundo);
+  color: var(--cor-primaria);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -81,7 +82,7 @@
 }
 
 .btn:hover {
-  color: #fff;
-  background-color: #155589;
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
   transition-delay: 0.1s;
 }
