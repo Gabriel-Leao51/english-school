@@ -1,0 +1,56 @@
+.sobre-escola {
+  background-color: var(--cor-fundo-alternativa);
+  padding: 30px 50px; /* Margens laterais e espaçamento superior */
+}
+
+.sobre-escola h2 {
+  color: var(--cor-texto-primaria);
+  font-weight: 700;
+  background-color: var(--cor-destaque-2);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.sobre-escola p {
+  color: var(--cor-texto-primaria);
+  line-height: 1.6;
+  margin-bottom: 4rem;
+}
+
+.sobre-escola img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  width: 100%; /* Imagem ocupa a largura do container */
+  max-width: auto; /* Largura máxima da imagem */
+  height: auto; /* Altura ajusta automaticamente */
+}
+
+/* Centralizar elementos e alternar imagens */
+.sobre-escola .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Espaçamento entre as divs */
+}
+
+.sobre-escola .row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Responsividade em telas menores */
+@media (max-width: 768px) {
+  .sobre-escola .row {
+    flex-direction: column;
+    gap: 30px; /* Ajusta o espaçamento entre as divs */
+  }
+
+  .sobre-escola .col-md-6 {
+    margin-bottom: 0; /* Remove a margem inferior em telas menores */
+  }
+
+  .sobre-escola {
+    padding: 30px 20px; /* Reduz as margens laterais */
+  }
+}

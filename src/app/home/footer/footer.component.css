@@ -1,0 +1,86 @@
+.footer {
+  background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-fundo));
+  color: var(--cor-texto-primaria);
+  padding: 30px 15px; /* Redução do espaçamento interno */
+}
+
+.footer a {
+  color: var(--cor-texto-primaria);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--cor-secundaria);
+  text-decoration: underline;
+}
+
+.footer h5 {
+  font-size: 1em; /* Título menor */
+  margin-bottom: 1em; /* Margem inferior reduzida */
+  font-weight: 600;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.85em; /* Texto menor */
+  line-height: 1.4; /* Espaçamento entre linhas reduzido */
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espaçamento entre links reduzido */
+  margin-bottom: 1.5em; /* Margem inferior reduzida */
+}
+
+.footer li {
+  margin-bottom: 0;
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5em; /* Espaço acima dos ícones reduzido */
+}
+
+.footer .social-icons a {
+  font-size: 1.4em; /* Ícones menores */
+  margin: 0 8px; /* Espaçamento entre ícones reduzido */
+  transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: var(--cor-secundaria);
+}
+
+.footer .row:last-of-type {
+  margin-top: 1.5em; /* Espaço acima do copyright reduzido */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1em; /* Espaçamento interno reduzido */
+  text-align: center;
+}
+
+.footer .row:last-of-type p {
+  font-size: 0.75em; /* Copyright menor */
+}
+
+/* Responsividade (ajuste conforme necessário) */
+@media (max-width: 768px) {
+  .footer .social-icons a {
+    font-size: 1.2em; /* Ícones ainda menores */
+  }
+
+  .footer ul {
+    display: block;
+    text-align: center;
+  }
+
+  .footer li {
+    margin-bottom: 8px; /* Espaçamento reduzido entre links */
+  }
+}

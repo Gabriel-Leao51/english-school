@@ -6,9 +6,9 @@
   background: linear-gradient(
     to bottom right,
     var(--cor-primaria),
-    var(--cor-destaque-1)
+    var(--cor-fundo-alternativa)
   );
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;
 }
 
 .image-container {
@@ -17,7 +17,6 @@
 }
 
 .img-fluid {
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
   clip-path: ellipse(80% 70% at 50% 30%);
   width: 50%; /* Largura que a imagem ocupa do container */
 }
@@ -28,7 +27,7 @@
   left: 50%;
   transform: translate(
     -135%,
-    -90%
+    -65%
   ); /* Orienta horizontalmente e verticalmente */
   color: white;
   z-index: 10; /* Garante que o slogan fique acima da imagem */
@@ -37,7 +36,8 @@
 
 .slogan {
   font-family: Raleway;
-  font-size: 3em;
+  font-size: 3.5em;
+  max-width: 85%;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
 }
@@ -57,7 +57,7 @@
 
 .btn:hover {
   color: var(--cor-fundo-alternativa);
-  background-color: var(--cor-secundaria-darker);
+  background-color: var(--cor-secundaria);
   transition-delay: 0.1s;
 }
 

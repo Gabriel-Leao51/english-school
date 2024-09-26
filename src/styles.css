@@ -3,23 +3,25 @@
 @import url("https://fonts.googleapis.com/css?family=Lora");
 
 :root {
-  /* Paleta Principal */
-  --cor-primaria: #4169e1; /* Azul Real */
-  --cor-secundaria: #ffd700; /* Dourado */
-  --cor-secundaria-darker: #d7bb1e; /* Dourado */
-  --cor-fundo: #ffffff; /* Branco */
-  --cor-fundo-alternativa: #f5f5dc; /* Creme */
+  --cor-primaria: #293d71; /* Azul Escuro - versão mais profunda do azul royal  */
+  --cor-secundaria: #d4af37; /* Dourado Quente -  combina com o azul escuro */
+  --cor-fundo: #121212; /* Cinza Escuro -  base para o tema dark */
+  --cor-fundo-alternativa: #1f1f1f; /* Cinza escuro alternativo -  sutil variação para elementos */
 
   /* Paleta Secundária */
-  --cor-destaque-1: #006400; /* Verde Escuro */
-  --cor-destaque-2: #800000; /* Vermelho Escuro */
+  --cor-destaque-1: #00a86b; /* Verde Esmeralda -  contraste vibrante e elegante */
+  --cor-destaque-2: #c24940; /* Vermelho Escuro -  menos agressivo que o original */
 
   /* Cores Neutras */
-  --cor-texto-primaria: #212529; /* Cinza Escuro */
-  --cor-texto-secundaria: #6c757d; /* Cinza Médio */
+  --cor-texto-primaria: #f5f5f5; /* Cinza muito claro -  alta legibilidade no fundo escuro */
+  --cor-texto-secundaria: #b3b3b3; /* Cinza claro -  para textos secundários */
 }
 
 body {
-  background: linear-gradient(to left, var(--cor-fundo), azure);
+  background: linear-gradient(
+    to left,
+    var(--cor-fundo),
+    var(--cor-fundo-alternativa)
+  );
   font-family: "Roboto", sans-serif;
 }

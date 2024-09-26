@@ -1,0 +1,68 @@
+.container {
+  margin-top: 0.3rem;
+  width: 100%;
+  background: linear-gradient(
+    to bottom left,
+    var(--cor-fundo-alternativa),
+    var(--cor-primaria)
+  );
+  /* border-radius: 16px; */
+}
+
+.curso-card {
+  display: inline-block;
+  width: 250px; /* Ajuste a largura máxima conforme necessário */
+  margin: 25px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+}
+
+.card-title {
+  margin: 0;
+}
+.card-text {
+  margin-bottom: 0;
+}
+
+.bg-primary {
+  position: relative;
+  width: auto;
+  padding: 15px;
+  text-align: left;
+  background-color: var(--cor-destaque-1);
+  color: var(--cor-texto-primaria);
+}
+
+.bg-primary h5 {
+  font-size: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

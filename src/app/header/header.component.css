@@ -1,6 +1,6 @@
 .header {
   background: linear-gradient(to right, var(--cor-primaria), var(--cor-fundo));
-  color: var(--cor-fundo);
+  color: var(--cor-texto-primaria);
   padding: 1rem 0;
   border-radius: 16px;
   display: flex;
@@ -70,8 +70,8 @@
 }
 
 .btn {
-  background-color: var(--cor-fundo);
-  color: var(--cor-primaria);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-primaria);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -82,7 +82,7 @@
 }
 
 .btn:hover {
-  color: var(--cor-fundo);
-  background-color: var(--cor-primaria);
+  color: var(--cor-texto-primaria);
+  background-color: var(--cor-fundo);
   transition-delay: 0.1s;
 }
