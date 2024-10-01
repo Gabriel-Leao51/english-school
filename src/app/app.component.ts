@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './home/main/main.component';
-import { CursosGridComponent } from './home/cursos-grid/cursos-grid.component';
-import { SobreComponent } from './home/sobre/sobre.component';
-import { FooterComponent } from './home/footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +10,9 @@ import { FooterComponent } from './home/footer/footer.component';
   imports: [
     RouterOutlet,
     HeaderComponent,
-    MainComponent,
-    CursosGridComponent,
-    SobreComponent,
     FooterComponent,
+    HomeComponent,
+    RouterModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
