@@ -17,8 +17,10 @@
         </ul>
       </nav>
       <div class="buttons">
-        <button class="btn login" [routerLink]="['/login']">Login</button>
-        <button class="btn cadastrar" [routerLink]="['/cadastro']">
+        <button class="btn login" button (click)="abrirModalLogin()">
+          Login
+        </button>
+        <button class="btn cadastrar" button (click)="abrirModalCadastro()">
           Cadastre-se
         </button>
       </div>

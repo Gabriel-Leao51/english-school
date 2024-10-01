@@ -1,16 +1,67 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email" />
-    <div *ngIf="loginForm && loginForm.get('email')?.hasError('email')">
-      Email inválido
+<app-modal [isOpen]="showModal" (closed)="showModal = false" id="loginModal">
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <h2>Login</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    loginForm.get('email')?.touched &&
+                    loginForm.get('email')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="loginForm.get('email')?.hasError('required')">
+                    Email é obrigatório
+                  </div>
+                  <div *ngIf="loginForm.get('email')?.hasError('email')">
+                    Email inválido
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Senha:</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+                <div
+                  *ngIf="
+                    loginForm.get('password')?.touched &&
+                    loginForm.get('password')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="loginForm.get('password')?.hasError('required')">
+                    Senha é obrigatória
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="!loginForm.valid"
+              >
+                Entrar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div>
-    <label for="password">Senha:</label>
-    <input type="password" id="password" formControlName="password" />
-  </div>
-
-  <button type="submit" [disabled]="!loginForm.valid">Entrar</button>
-</form>
+</app-modal>

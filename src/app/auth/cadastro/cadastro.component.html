@@ -1,19 +1,90 @@
-<form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Nome:</label>
-    <input type="text" id="name" formControlName="name" />
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email" />
-    <div *ngIf="cadastroForm && cadastroForm.get('email')?.hasError('email')">
-      Email inválido
+<app-modal [isOpen]="showModal" (closed)="showModal = false" id="cadastroModal">
+  <div class="modal" id="cadastroModal">
+    <div class="modal-content">
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <h2>Cadastro</h2>
+            <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="name">Nome:</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                />
+                <div
+                  *ngIf="
+                    cadastroForm.get('name')?.touched &&
+                    cadastroForm.get('name')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="cadastroForm.get('name')?.hasError('required')">
+                    Nome é obrigatório
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    cadastroForm.get('email')?.touched &&
+                    cadastroForm.get('email')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="cadastroForm.get('email')?.hasError('required')">
+                    Email é obrigatório
+                  </div>
+                  <div *ngIf="cadastroForm.get('email')?.hasError('email')">
+                    Email inválido
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Senha:</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+                <div
+                  *ngIf="
+                    cadastroForm.get('password')?.touched &&
+                    cadastroForm.get('password')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="cadastroForm.get('password')?.hasError('required')"
+                  >
+                    Senha é obrigatória
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="!cadastroForm.valid"
+              >
+                Cadastrar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div>
-    <label for="password">Senha:</label>
-    <input type="password" id="password" formControlName="password" />
-  </div>
-
-  <button type="submit" [disabled]="!cadastroForm.valid">Cadastrar</button>
-</form>
+</app-modal>

@@ -1,0 +1,116 @@
+/* modal.component.css */
+
+.modal-content {
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-fundo)
+  ); /* Gradiente */
+  border: none; /* Remove a borda */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 30px; /* Adiciona padding ao conteúdo */
+}
+
+/* Estilos para fechar a modal */
+.close {
+  color: var(--cor-texto-primaria);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  position: relative; /* Para posicionar o botão */
+  top: 10px; /* Ajuste vertical */
+  right: 15px; /* Ajuste horizontal */
+}
+
+.close:hover,
+.close:focus {
+  opacity: 1;
+}
+
+/* Estilos para os títulos */
+h2 {
+  color: var(--cor-texto-primaria); /* Cor do texto primária para o título */
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Estilos para os formulários */
+.form-group {
+  position: relative; /* Para posicionar a label */
+  margin-bottom: 2rem;
+  display: flex; /* Habilita o Flexbox */
+  flex-direction: column; /* Alinha os itens na vertical */
+  align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.form-group label {
+  position: absolute;
+  top: -20px; /* Posição acima do input */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(
+    -50%
+  ); /* Ajusta a posição para centralizar corretamente */
+  background-color: transparent; /* Fundo transparente */
+  color: var(--cor-texto-primaria);
+  padding: 0 5px;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-texto-secundaria);
+  color: var(--cor-texto-primaria);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(41, 61, 113, 0.3);
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  top: -10px;
+  font-size: 0.7rem;
+  color: var(--cor-primaria); /* Cor da label quando o input está em foco */
+}
+
+/* Estilos para os botões */
+.btn-primary,
+.btn-success {
+  background-color: var(--cor-secundaria); /* Cor secundária para os botões */
+  border-color: var(--cor-secundaria);
+  color: var(--cor-fundo); /* Cor do texto do botão */
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+  display: block; /* Ocupa toda a largura do container */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  background-color: #c89f2f; /* Cor mais escura ao passar o mouse */
+  border-color: #c89f2f;
+}
+
+/* Estilos para links dentro da modal */
+a {
+  color: var(--cor-destaque-1); /* Verde Esmeralda para o link */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.text-danger {
+  color: var(--cor-destaque-2); /* Vermelho Escuro para mensagens de erro */
+  font-size: 0.8rem;
+  margin-top: 5px;
+}

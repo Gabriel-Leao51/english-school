@@ -1,0 +1,6 @@
+<div class="modal" [ngStyle]="{ display: isOpen ? 'block' : 'none' }">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">×</span>
+    <ng-content></ng-content>
+  </div>
+</div>
