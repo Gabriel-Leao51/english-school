@@ -34,12 +34,14 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      import('./login/login.component').then((c) => c.LoginComponent),
+      import('./auth/login/login.component').then((c) => c.LoginComponent),
   },
   {
     path: 'cadastro',
     loadComponent: () =>
-      import('./cadastro/cadastro.component').then((c) => c.CadastroComponent),
+      import('./auth/cadastro/cadastro.component').then(
+        (c) => c.CadastroComponent
+      ),
   },
   // { path: '**', component: PaginaNaoEncontradaComponent }, // Rota para página não encontrada (opcional)
 ];

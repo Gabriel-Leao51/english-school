@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" />
+    <div *ngIf="loginForm && loginForm.get('email')?.hasError('email')">
+      Email inválido
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" formControlName="password" />
+  </div>
+
+  <button type="submit" [disabled]="!loginForm.valid">Entrar</button>
+</form>
