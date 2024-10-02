@@ -85,7 +85,7 @@ h2 {
   background-color: var(--cor-secundaria); /* Cor secundária para os botões */
   border-color: var(--cor-secundaria);
   color: var(--cor-fundo); /* Cor do texto do botão */
-  padding: 10px 20px;
+  padding: 10px 30px;
   font-weight: bold;
   transition: background-color 0.3s;
   border-radius: 4px;
@@ -97,6 +97,8 @@ h2 {
 .btn-success:hover {
   background-color: #c89f2f; /* Cor mais escura ao passar o mouse */
   border-color: #c89f2f;
+  color: var(--cor-texto-primaria);
+  cursor: pointer;
 }
 
 /* Estilos para links dentro da modal */
