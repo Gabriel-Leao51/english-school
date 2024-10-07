@@ -4,7 +4,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
 const authRoutes = require("./routes/authRoutes"); // Importe as rotas de autenticação
+const cursoRoutes = require("./routes/cursoRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3001; // Porta para a API
@@ -20,6 +22,7 @@ app.use(
 );
 
 app.use("/api/auth", authRoutes); // Use as rotas de autenticação com o prefixo '/api/auth'
+app.use("/api/cursos", cursoRoutes);
 
 // Conexão com o MongoDB (substitua com sua string de conexão)
 mongoose
