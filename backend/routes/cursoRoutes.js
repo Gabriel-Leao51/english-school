@@ -26,3 +26,5 @@ router.get("/:id", async (req, res) => {
     res.status(500).send({ error: "Erro ao buscar curso." }); // Trata erros e envia um status 500
   }
 });
+
+module.exports = router;
