@@ -1,0 +1,102 @@
+/* Seção Benefícios */
+.beneficios {
+  padding: 0.5rem 0 4rem 0;
+  background: linear-gradient(
+    to bottom left,
+    var(--cor-primaria),
+    var(--cor-fundo)
+  );
+  text-align: center;
+}
+
+.beneficios h2 {
+  color: var(--cor-texto-primaria);
+  font-family: Raleway;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.beneficios-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.beneficio-item {
+  width: 300px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.beneficio-item i {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.beneficio-item h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+/* Seção Chamadas para Ação */
+.cta {
+  padding: 1rem 0 3rem 0;
+  background-color: var(--cor-fundo-alternativa);
+  text-align: center;
+}
+
+.cta h2 {
+  color: var(--cor-texto-primaria);
+  font-family: Raleway;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-primaria);
+}
+
+.btn-secondary {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-primaria);
+  border: 2px solid var(--cor-primaria);
+}
+
+.btn-primary:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-fundo-alternativa);
+}
+
+.btn-secondary:hover {
+  background-color: var(--cor-texto-primaria);
+  color: var(--cor-fundo);
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .beneficios h2,
+  .cta h2 {
+    font-size: 2em;
+  }
+
+  .beneficio-item {
+    width: 90%;
+  }
+}

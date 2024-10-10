@@ -47,9 +47,10 @@
 }
 
 .btn {
+  text-decoration: none;
   background-color: var(--cor-secundaria);
   width: fit-content;
-  color: var(--cor-texto-primaria);
+  color: var(--cor-fundo-alternativa);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -59,8 +60,7 @@
 }
 
 .btn:hover {
-  color: var(--cor-fundo-alternativa);
-  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-primaria);
   transition-delay: 0.1s;
 }
 

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CursoService } from './curso.service';
 import { Curso } from './curso';
 import { NgFor, NgIf } from '@angular/common';
+import { BeneficiosCtaComponent } from './beneficios-cta/beneficios-cta.component';
 
 @Component({
   selector: 'app-cursos',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [NgIf, NgFor, BeneficiosCtaComponent],
   providers: [CursoService],
   templateUrl: './cursos.component.html',
   styleUrls: ['./cursos.component.css'],

@@ -1,0 +1,32 @@
+<section class="beneficios">
+  <div class="container">
+    <h2>Por que escolher nossos cursos?</h2>
+    <div class="row">
+      <div *ngFor="let beneficio of beneficios" class="col-md-4">
+        <div class="beneficio">
+          <i
+            [class]="beneficio.icone"
+            [style.color]="beneficio.cor"
+            (load)="aplicarCor($event)"
+          ></i>
+          <h3 [style.color]="beneficio.cor" (load)="aplicarCor($event)">
+            {{ beneficio.titulo }}
+          </h3>
+          <p [style.color]="beneficio.cor" (load)="aplicarCor($event)">
+            {{ beneficio.descricao }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Comece a falar inglês hoje mesmo!</h2>
+    <a [routerLink]="['/matricula']" class="btn btn-primary"
+      >Matricule-se agora</a
+    >
+    <a [routerLink]="['/contato']" class="btn btn-secondary">Fale conosco</a>
+  </div>
+</section>
