@@ -1,0 +1,168 @@
+.curso-detalhes {
+  padding-top: 0.3rem;
+  background-color: var(--cor-fundo-alternativa);
+}
+
+.detalhes-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Seção Principal */
+.secao-principal {
+  text-align: left;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-fundo-alternativa)
+  );
+  border-radius: 16px 16px 0 0;
+  padding: 30px 0;
+}
+
+.secao-principal h2 {
+  color: var(--cor-texto-primaria);
+  font-family: Raleway;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.secao-principal .image-container {
+  width: 50%;
+}
+
+.secao-principal img {
+  clip-path: ellipse(80% 70% at 50% 30%);
+  width: 100%;
+  height: auto;
+}
+
+.texto-principal {
+  width: 45%;
+  color: white;
+}
+
+.texto-principal p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Seção Secundária */
+.secao-secundaria {
+  padding: 2rem;
+  padding-top: 0;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-fundo-alternativa),
+    var(--cor-fundo)
+  );
+}
+
+.secao-secundaria .detalhes-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha os itens ao topo */
+}
+
+.secao-secundaria .coluna-esquerda {
+  width: 45%;
+}
+
+.secao-secundaria .coluna-direita {
+  width: 50%;
+}
+
+.secao-secundaria .informacoes {
+  width: 60%;
+}
+
+.secao-secundaria .cta {
+  width: 35%;
+  text-align: right;
+}
+
+.informacoes ul,
+.conteudo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.informacoes li,
+.conteudo li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.informacoes i,
+.conteudo i {
+  margin-right: 10px;
+  color: var(--cor-primaria);
+}
+
+.informacoes h3,
+.conteudo h3 {
+  color: var(--cor-texto-primaria);
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.informacoes ul {
+  color: var(--cor-texto-secundaria);
+  line-height: 1.6;
+}
+
+.informacoes strong {
+  font-weight: bold;
+}
+
+.conteudo li {
+  color: var(--cor-texto-secundaria);
+}
+
+/* Chamada para Ação */
+.cta .btn-primary {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-fundo);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cta .btn-primary:hover {
+  color: var(--cor-texto-primaria);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .detalhes-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .secao-principal img,
+  .texto-principal,
+  .secao-secundaria .informacoes,
+  .secao-secundaria .cta {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .secao-secundaria .cta {
+    text-align: center;
+  }
+
+  .secao-principal h2 {
+    font-size: 2em;
+  }
+}

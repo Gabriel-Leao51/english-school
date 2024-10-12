@@ -1,50 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoService } from './curso.service';
-import { Curso } from './curso';
-import { NgFor, NgIf } from '@angular/common';
 import { BeneficiosCtaComponent } from './beneficios-cta/beneficios-cta.component';
+import { CursosMainComponent } from './cursos-main/cursos-main.component';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cursos',
   standalone: true,
-  imports: [NgIf, NgFor, BeneficiosCtaComponent],
-  providers: [CursoService],
+  imports: [CursosMainComponent, BeneficiosCtaComponent],
   templateUrl: './cursos.component.html',
-  styleUrls: ['./cursos.component.css'],
 })
 export class CursosComponent implements OnInit {
-  cursos: Curso[] = [];
-  modalidades: string[] = [
-    'Crianças',
-    'Adolescentes',
-    'Adultos',
-    'Professores',
-  ];
-
-  constructor(private cursoService: CursoService) {}
+  constructor(private router: Router) {}
+  scrollYPosition = 0;
 
   ngOnInit(): void {
-    this.obterCursos();
-  }
+    // Salva a posição de rolagem antes de sair da página
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        window.addEventListener('load', () => {
+          // Movemos o listener para ngOnInit
+          this.scrollYPosition = window.scrollY;
+        });
+      }
+    });
 
-  obterCursos(): void {
-    this.cursoService
-      .obterCursos()
-      .subscribe((cursos: Curso[]) => (this.cursos = cursos));
-  }
-
-  obterFaixaEtaria(modalidade: string): string {
-    switch (modalidade) {
-      case 'Crianças':
-        return '6-12 anos';
-      case 'Adolescentes':
-        return '13-17 anos';
-      case 'Adultos':
-        return '18+ anos';
-      case 'Professores':
-        return '22+ anos';
-      default:
-        return '';
-    }
+    // Restaura a posição de rolagem ao voltar para a página
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd && event.url === '/cursos') {
+        window.addEventListener('load', () => {
+          window.scrollTo(0, this.scrollYPosition);
+        });
+      }
+    });
   }
 }

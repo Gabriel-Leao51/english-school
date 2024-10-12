@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { CursoDetalhesComponent } from './cursos/curso-detalhes/curso-detalhes.component';
 
 export const routes: Routes = [
   {
@@ -43,5 +44,6 @@ export const routes: Routes = [
         (c) => c.CadastroComponent
       ),
   },
+  { path: 'cursos/:id', component: CursoDetalhesComponent },
   // { path: '**', component: PaginaNaoEncontradaComponent }, // Rota para página não encontrada (opcional)
 ];

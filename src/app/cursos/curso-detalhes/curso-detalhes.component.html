@@ -1,0 +1,71 @@
+<div *ngIf="curso" class="curso-detalhes">
+  <section class="secao-principal">
+    <div class="detalhes-content">
+      <div class="texto-principal">
+        <h2>{{ curso.titulo }}</h2>
+        <section class="descricao">
+          <p>{{ curso.descricaoDetalhada }}</p>
+        </section>
+      </div>
+      <div class="image-container">
+        <img [src]="curso.imagem" [alt]="curso.titulo" />
+      </div>
+    </div>
+  </section>
+
+  <section class="secao-secundaria">
+    <div class="detalhes-content">
+      <div class="coluna-esquerda">
+        <div class="informacoes">
+          <h3>Informações</h3>
+          <ul>
+            <li>
+              <i class="fas fa-chalkboard-teacher"></i>
+              <strong>Público:</strong> {{ curso.modalidade }}
+            </li>
+            <li>
+              <i class="fas fa-signal"></i>
+              <strong>Nível:</strong> {{ curso.nivel }}
+            </li>
+            <li>
+              <i class="fas fa-user-tie"></i>
+              <strong>Professor:</strong> {{ curso.professor }}
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <strong>Duração:</strong> {{ curso.duracao }}
+            </li>
+            <li>
+              <i class="fas fa-hourglass-half"></i>
+              <strong>Carga Horária:</strong> {{ curso.cargaHoraria }}
+            </li>
+            <li>
+              <i class="fas fa-globe-americas"></i>
+              <strong>Idioma:</strong> {{ curso.idioma }}
+            </li>
+            <li>
+              <i class="fas fa-money-bill-wave"></i>
+              <strong>Investimento:</strong>
+              {{ curso.investimento | currency : "BRL" }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="cta">
+          <button class="btn btn-primary">Matricule-se Agora</button>
+        </div>
+      </div>
+
+      <div class="coluna-direita">
+        <section class="conteudo">
+          <h3>Conteúdo Programático</h3>
+          <ul>
+            <li *ngFor="let topico of curso.conteudoProgramatico">
+              {{ topico }}
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
