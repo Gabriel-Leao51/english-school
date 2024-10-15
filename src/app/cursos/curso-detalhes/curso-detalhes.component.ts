@@ -30,12 +30,21 @@ export class CursoDetalhesComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       // Código que utiliza window
       if (id) {
-        this.cursoService.obterCursoPorId(id).subscribe((curso) => {
+        this.cursoService.obterCursoPorId(id).subscribe((curso: Curso) => {
           this.curso = curso;
         });
       }
 
       console.log(window.innerWidth); // Exemplo de acesso ao objeto window
+    }
+  }
+
+  exibirNomeProfessor(): string {
+    // Verifique se o curso e o professor estão carregados antes de acessar o nome
+    if (this.curso && this.curso.professor) {
+      return this.curso.professor.nome;
+    } else {
+      return 'Professor não encontrado';
     }
   }
 }

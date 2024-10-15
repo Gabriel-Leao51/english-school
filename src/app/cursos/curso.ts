@@ -1,3 +1,5 @@
+import { Professor } from '../metodo/professor';
+
 export interface Curso {
   _id: string;
   titulo: string;
@@ -6,7 +8,7 @@ export interface Curso {
   descricaoDetalhada: string; // Nova propriedade: Descrição detalhada
   modalidade: string;
   nivel: string;
-  professor: string;
+  professor: Professor;
   duracao: string; // (já existente)
   cargaHoraria: string; // Nova propriedade
   idioma: string;

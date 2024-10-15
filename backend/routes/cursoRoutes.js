@@ -2,6 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 const Curso = require("../models/Curso"); // Importe o modelo do curso
 
 router.get("/", async (req, res) => {
@@ -15,15 +16,27 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const curso = await Curso.findById(req.params.id); // Busca o curso pelo ID
+    const curso = await Curso.aggregate([
+      { $match: { _id: new mongoose.Types.ObjectId(req.params.id) } },
+      {
+        $lookup: {
+          from: "professores",
+          localField: "professor",
+          foreignField: "_id",
+          as: "professor",
+        },
+      },
+      { $unwind: "$professor" },
+    ]);
 
-    if (!curso) {
-      return res.status(404).send({ error: "Curso não encontrado." }); // Retorna 404 se o curso não for encontrado
+    if (curso.length === 0) {
+      return res.status(404).send({ error: "Curso não encontrado." });
     }
 
-    res.send(curso); // Envia os detalhes do curso como resposta
+    res.send(curso[0]);
   } catch (err) {
-    res.status(500).send({ error: "Erro ao buscar curso." }); // Trata erros e envia um status 500
+    console.error(err);
+    res.status(500).send({ error: "Erro ao buscar curso." });
   }
 });
 

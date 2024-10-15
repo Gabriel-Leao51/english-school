@@ -1,6 +1,7 @@
 // models/Curso.js
 
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const CursoSchema = new mongoose.Schema({
   titulo: {
@@ -54,8 +55,9 @@ const CursoSchema = new mongoose.Schema({
     enum: ["Básico", "Intermediário", "Avançado"],
   },
   professor: {
-    type: String,
-    // Você pode referenciar um modelo 'Professor' aqui, se tiver um.
+    type: Schema.Types.ObjectId,
+    ref: "Professor", // Referencia o modelo Professor
+    required: true,
   },
   imagem: {
     type: String,
