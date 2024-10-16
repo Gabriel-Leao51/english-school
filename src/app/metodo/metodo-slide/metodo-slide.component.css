@@ -1,0 +1,103 @@
+.metodo-slide-section {
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  margin-top: 0.3rem;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-fundo-alternativa)
+  );
+  border-radius: 16px 16px 0 0;
+  padding: 30px 0; /* Espaçamento interno do banner */
+}
+
+.metodo-slide-content {
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between; /* Distribui o espaço */
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o container */
+  padding: 0 20px; /* Espaçamento interno do container */
+  position: relative;
+  min-height: 400px; /* Altura mínima */
+}
+
+/* Estilos para cada slide */
+.slide {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Exibe o slide ativo */
+.slide.active {
+  padding: 0 20px;
+  visibility: visible;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centraliza verticalmente */
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide:not(.active) {
+  transform: translateX(100%);
+}
+
+.image-container {
+  width: 50%; /* Largura da imagem */
+}
+
+.img-fluid {
+  clip-path: ellipse(80% 70% at 50% 30%);
+  width: 100%;
+  max-width: 93.5%;
+  height: auto;
+}
+
+.text-container {
+  color: white;
+  flex: 0.9; /* Ocupa um pouco menos de espaço */
+  margin-right: 40px; /* Margem direita maior */
+}
+
+h2 {
+  color: var(--cor-texto-primaria);
+  font-family: Raleway;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Estilos para os pontos de navegação */
+.navigation-dots {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.navigation-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.navigation-dots span.active {
+  background-color: var(--cor-primaria);
+}

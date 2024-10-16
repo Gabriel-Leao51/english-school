@@ -1,0 +1,26 @@
+<section class="metodo-slide-section">
+  <div class="metodo-slide-content">
+    <div
+      class="slide"
+      *ngFor="let slide of slides; let i = index"
+      [ngClass]="{ active: i === activeSlideIndex }"
+    >
+      <div class="text-container">
+        <h2>{{ slide.titulo }}</h2>
+        <p>{{ slide.descricao }}</p>
+      </div>
+
+      <div class="image-container">
+        <img [src]="slide.imagem" [alt]="slide.titulo" class="img-fluid" />
+      </div>
+    </div>
+
+    <div class="navigation-dots">
+      <span
+        *ngFor="let slide of slides; let i = index"
+        (click)="goToSlide(i)"
+        [ngClass]="{ active: i === activeSlideIndex }"
+      ></span>
+    </div>
+  </div>
+</section>
