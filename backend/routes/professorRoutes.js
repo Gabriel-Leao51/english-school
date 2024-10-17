@@ -5,8 +5,9 @@ const Professor = require("../models/Professor"); // Importe o modelo
 // Listar todos os professores
 router.get("/", async (req, res) => {
   try {
+    console.log("Rota /api/professores acessada!");
     const professores = await Professor.find();
-    res.json(professores);
+    res.send(professores);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

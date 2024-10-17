@@ -5,7 +5,7 @@ import { Professor } from './professor';
 
 @Injectable({ providedIn: 'root' })
 export class ProfessorService {
-  private apiUrl = 'http://localhost:3000/api/professores'; // Ajuste a URL da API
+  private apiUrl = 'http://localhost:3001/api/professores'; // Ajuste a URL da API
 
   constructor(private http: HttpClient) {}
 

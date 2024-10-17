@@ -1,0 +1,81 @@
+/* professores.component.css */
+
+/* Estilos para os cards dos professores */
+#professores-container {
+  justify-content: space-between; /* Distribui os cards com espaçamento entre eles */
+  padding: 2rem 5rem;
+}
+
+.professores-section {
+  padding: 2rem 0;
+  background-image: url("/assets/imagens/professores-bg.jpg"); /* Substitua pela URL da sua imagem */
+  background-size: auto;
+  background-position: center;
+  position: relative;
+}
+
+.title {
+  margin: 0 80px;
+  color: var(--cor-texto-primaria);
+}
+
+.card {
+  width: 100%;
+  background-image: inherit;
+  background-position: 50% 20%;
+  background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-fundo));
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  display: flex; /* Adicione o Flexbox aqui! */
+  justify-content: flex-start;
+  align-items: center; /* Alinha verticalmente ao centro */
+}
+
+.card-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-container.reverse .card {
+  flex-direction: row-reverse; /* Inverte a ordem */
+  margin-left: auto;
+}
+
+.card-body {
+  max-width: 75%;
+}
+
+.card img {
+  margin-right: 1.5rem;
+  width: 20%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-container.reverse .card img {
+  margin-right: 0;
+  margin-left: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: var(--cor-texto-primaria);
+}
+
+.formacao {
+  background-color: var(--cor-destaque-2);
+  color: var(--cor-texto-primaria);
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.card p {
+  margin-bottom: 8px;
+  color: var(--cor-texto-primaria);
+}

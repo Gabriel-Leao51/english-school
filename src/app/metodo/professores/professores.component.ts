@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProfessorService } from '../professor.service';
+import { Professor } from '../professor';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-professores',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './professores.component.html',
-  styleUrl: './professores.component.css'
+  styleUrl: './professores.component.css',
 })
-export class ProfessoresComponent {
+export class ProfessoresComponent implements OnInit {
+  professores: Professor[] = [];
 
+  constructor(private professorService: ProfessorService) {}
+
+  ngOnInit(): void {
+    this.obterProfessores();
+  }
+
+  obterProfessores(): void {
+    this.professorService
+      .getProfessores()
+      .subscribe((professores) => (this.professores = professores));
+  }
 }

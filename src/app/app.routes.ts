@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { CursoDetalhesComponent } from './cursos/curso-detalhes/curso-detalhes.component';
+import { ProfessoresComponent } from './metodo/professores/professores.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./metodo/metodo.component').then((c) => c.MetodoComponent),
   },
+  { path: 'professores', component: ProfessoresComponent },
   {
     path: 'contato',
     loadComponent: () =>
