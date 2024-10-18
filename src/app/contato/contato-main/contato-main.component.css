@@ -1,0 +1,171 @@
+/* Container principal da seção de contato */
+.contato-container {
+  margin-top: 0.3rem;
+  padding: 5rem 0 2rem 0;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-fundo-alternativa),
+    var(--cor-fundo)
+  );
+  background-image: url("/assets/imagens/contato-bg.jpg");
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* Estilização do título da seção */
+.contato-container > h2 {
+  color: var(--cor-texto-primaria);
+  font-family: Raleway, sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Container para os links rápidos de contato */
+.contato-rapido {
+  text-align: left;
+  width: 45%;
+  border-right: 1px solid var(--cor-texto-secundaria);
+  padding-top: 2rem;
+  padding-right: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+}
+
+.contato-rapido h2,
+.contato-rapido p {
+  color: var(--cor-texto-primaria);
+  text-align: left;
+  margin-left: 15px;
+}
+
+/* Lista de links de contato */
+.contato-rapido ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Estilização dos links */
+.contato-rapido a {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--cor-texto-primaria);
+  transition: all 0.3s ease;
+}
+
+.contato-rapido a:hover {
+  color: var(--cor-secundaria);
+}
+
+/* Container do formulário de contato */
+.contato-formulario {
+  width: 30%;
+  padding: 0 0.5rem 1rem 2rem;
+  margin: 0 8rem 0 2rem;
+  margin-top: -30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os itens à esquerda */
+  background: linear-gradient(
+    to bottom right,
+    rgba(41, 61, 113, 0.7),
+    rgba(31, 31, 31, 0.7)
+  );
+}
+
+.contato-formulario h2 {
+  color: var(--cor-texto-primaria);
+  align-self: flex-start;
+}
+
+.contato-formulario form {
+  width: 90%;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+/* Estilização dos labels do formulário */
+.contato-formulario label {
+  color: var(--cor-texto-primaria);
+  margin-bottom: 0.5rem;
+}
+
+/* Estilização dos inputs e textarea do formulário */
+.contato-formulario input,
+.contato-formulario textarea {
+  width: 90%; /* Ocupa a largura disponível */
+  padding: 0.3rem;
+  border: 1px solid var(--cor-texto-secundaria);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--cor-texto-primaria);
+}
+
+.form-control {
+  margin-bottom: 0.8rem;
+}
+/* Estilização do botão de enviar */
+.contato-formulario button[type="submit"] {
+  padding: 1rem 1rem;
+  max-width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-primaria);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contato-formulario button[type="submit"]:hover {
+  background-color: var(--cor-destaque-1);
+}
+
+/* Estilização das mensagens de erro */
+.contato-formulario .error-message {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .contato-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contato-rapido {
+    width: 100%;
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    margin-top: 0; /* Resetando o ajuste no eixo Y */
+  }
+
+  .contato-rapido h2,
+  .contato-rapido p {
+    margin-left: 0;
+  }
+
+  .contato-formulario {
+    width: 90%;
+  }
+
+  .contato-formulario form {
+    width: 100%;
+  }
+}

@@ -1,0 +1,134 @@
+<section class="contato-container">
+  <div class="contato-rapido">
+    <h2>Entre em contato conosco!</h2>
+    <p>
+      Tem alguma dúvida? Entre em contato conosco através dos nossos canais de
+      atendimento:
+    </p>
+    <ul>
+      <li>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="contato-formulario">
+    <form (ngSubmit)="enviarFormulario()" [formGroup]="contatoForm">
+      <h2>Ou envie uma mensagem:</h2>
+      <div class="form-control">
+        <label for="nome">Nome completo:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          formControlName="nome"
+          required
+        />
+        <div
+          *ngIf="
+            contatoForm.get('nome')?.touched && contatoForm.get('nome')?.invalid
+          "
+        >
+          <span
+            class="error-message"
+            *ngIf="contatoForm.get('nome')?.hasError('required')"
+            >O nome é obrigatório.</span
+          >
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          formControlName="email"
+          required
+        />
+        <div
+          *ngIf="
+            contatoForm.get('email')?.touched &&
+            contatoForm.get('email')?.invalid
+          "
+        >
+          <span
+            class="error-message"
+            *ngIf="contatoForm.get('email')?.hasError('required')"
+            >O email é obrigatório.</span
+          >
+          <span
+            class="error-message"
+            *ngIf="contatoForm.get('email')?.hasError('email')"
+            >Digite um email válido.</span
+          >
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label for="telefone">Telefone:</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          formControlName="telefone"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="assunto">Assunto:</label>
+        <input
+          type="text"
+          id="assunto"
+          name="assunto"
+          formControlName="assunto"
+          required
+        />
+        <div
+          *ngIf="
+            contatoForm.get('assunto')?.touched &&
+            contatoForm.get('assunto')?.invalid
+          "
+        >
+          <span
+            *ngIf="contatoForm.get('assunto')?.hasError('required')"
+            class="error-message"
+            >O assunto é obrigatório.</span
+          >
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label for="mensagem">Mensagem:</label>
+        <textarea
+          id="mensagem"
+          name="mensagem"
+          rows="5"
+          formControlName="mensagem"
+          required
+        ></textarea>
+        <div
+          *ngIf="
+            contatoForm.get('mensagem')?.touched &&
+            contatoForm.get('mensagem')?.invalid
+          "
+        >
+          <span
+            *ngIf="contatoForm.get('mensagem')?.hasError('required')"
+            class="error-message"
+            >A mensagem é obrigatória.</span
+          >
+        </div>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</section>
