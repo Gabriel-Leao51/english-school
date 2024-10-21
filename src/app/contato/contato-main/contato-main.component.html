@@ -128,7 +128,18 @@
         </div>
       </div>
 
-      <button type="submit">Enviar</button>
+      <button type="submit" [disabled]="enviandoMensagem">
+        <span *ngIf="enviandoMensagem">Enviando...</span>
+        <span *ngIf="!enviandoMensagem">Enviar</span>
+      </button>
+
+      <div *ngIf="mensagemEnviada" class="mensagem-sucesso">
+        Mensagem enviada com sucesso! 😄
+      </div>
+
+      <div *ngIf="erroEnvio" class="mensagem-erro">
+        Ops! Ocorreu um erro ao enviar a mensagem. 😢
+      </div>
     </form>
   </div>
 </section>

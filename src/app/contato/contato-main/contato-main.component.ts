@@ -13,6 +13,9 @@ import { NgIf } from '@angular/common';
 })
 export class ContatoMainComponent implements OnInit {
   contatoForm!: FormGroup; // Crie o FormGroup
+  enviandoMensagem: boolean = false; // Controla a exibição do loading
+  mensagemEnviada: boolean = false; // Controla a mensagem de sucesso
+  erroEnvio: boolean = false; // Controla a mensagem de erro
 
   constructor(
     private contatoService: ContatoService,
@@ -41,20 +44,21 @@ export class ContatoMainComponent implements OnInit {
       return;
     }
 
-    const formData = this.contatoForm.value;
-    console.log('Enviando dados:', formData); // Debug
+    this.enviandoMensagem = true; // Ativa o loading
+    this.mensagemEnviada = false; // Reseta as mensagens
+    this.erroEnvio = false;
 
-    this.contatoService.enviarMensagem(formData).subscribe(
+    this.contatoService.enviarMensagem(this.contatoForm.value).subscribe(
       (response) => {
-        // Lidar com a resposta de sucesso da API
         console.log('Resposta da API:', response);
-        // Limpe o formulário após o envio com sucesso
         this.contatoForm.reset();
+        this.enviandoMensagem = false; // Desativa o loading
+        this.mensagemEnviada = true; // Exibe a mensagem de sucesso
       },
       (error) => {
-        // Lidar com erros da API
         console.error('Erro ao enviar mensagem:', error);
-        // Exiba uma mensagem de erro ao usuário
+        this.enviandoMensagem = false; // Desativa o loading
+        this.erroEnvio = true; // Exibe a mensagem de erro
       }
     );
   }
