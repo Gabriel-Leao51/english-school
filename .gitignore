@@ -41,5 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Arquivos de Ambiente de Produção
+environment.prod.ts
+
 #Keys
 .env

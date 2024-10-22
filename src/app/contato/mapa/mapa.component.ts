@@ -7,6 +7,7 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-mapa',
@@ -25,8 +26,9 @@ export class MapaComponent implements AfterViewInit {
 
   private carregarAPI(): void {
     if (isPlatformBrowser(this.platformId)) {
+      const apiKey = environment.googleMapsApiKey;
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAMAJlvg6jliBQOKMhRbkYEYtFm2WQ4Sck&callback=inicializarMapa&loading=async`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=inicializarMapa&loading=async`;
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
