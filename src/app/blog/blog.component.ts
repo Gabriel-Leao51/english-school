@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
+import { BlogMainComponent } from './blog-main/blog-main.component';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [],
+  imports: [BlogMainComponent],
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.css'
 })
-export class BlogComponent {
-
-}
+export class BlogComponent {}

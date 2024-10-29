@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoService } from '../curso.service';
-import { Curso } from '../curso';
+import { CursoService } from '../../services/curso.service';
+import { Curso } from '../../models/curso.model';
 import { NgFor, NgIf } from '@angular/common';
 import { BeneficiosCtaComponent } from '../beneficios-cta/beneficios-cta.component';
 import { RouterLink } from '@angular/router';

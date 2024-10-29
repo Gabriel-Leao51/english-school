@@ -9,6 +9,8 @@ const authRoutes = require("./routes/authRoutes"); // Importe as rotas de autent
 const cursoRoutes = require("./routes/cursoRoutes");
 const professorRoutes = require("./routes/professorRoutes");
 const contatoRoutes = require("./routes/contatoRoutes");
+const artigoRoutes = require("./routes/artigoRoutes");
+const comentarioRoutes = require("./routes/comentarioRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3001; // Porta para a API
@@ -27,6 +29,8 @@ app.use("/api/auth", authRoutes); // Use as rotas de autenticação com o prefix
 app.use("/api/cursos", cursoRoutes);
 app.use("/api/professores", professorRoutes);
 app.use("/api/mensagens", contatoRoutes);
+app.use("/api/artigos", artigoRoutes);
+app.use("/api/comentarios", comentarioRoutes);
 
 // Conexão com o MongoDB (substitua com sua string de conexão)
 mongoose

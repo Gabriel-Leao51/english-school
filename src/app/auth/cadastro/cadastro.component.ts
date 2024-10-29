@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service'; // Importe o serviço
+import { AuthService } from '../../services/auth.service'; // Importe o serviço
 
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoService } from '../curso.service'; // Importe o serviço de cursos
-import { Curso } from '../curso'; // Importe a interface Curso
+import { CursoService } from '../../services/curso.service'; // Importe o serviço de cursos
+import { Curso } from '../../models/curso.model'; // Importe a interface Curso
 import { CurrencyPipe, NgFor, NgIf, isPlatformBrowser } from '@angular/common';
 
 @Component({

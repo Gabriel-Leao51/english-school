@@ -1,4 +1,4 @@
-import { Professor } from '../metodo/professor';
+import { Professor } from './professor.model';
 
 export interface Curso {
   _id: string;

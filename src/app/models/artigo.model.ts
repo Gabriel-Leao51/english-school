@@ -1,0 +1,19 @@
+// src/app/models/artigo.model.ts
+
+export interface Comment {
+  author: string;
+  content: string;
+  createdAt: Date;
+}
+
+export interface Artigo {
+  _id: string;
+  title: string;
+  content: string;
+  author: string;
+  category: string;
+  imageUrl?: string;
+  comments: Comment[];
+  createdAt: Date;
+  updatedAt: Date;
+}
