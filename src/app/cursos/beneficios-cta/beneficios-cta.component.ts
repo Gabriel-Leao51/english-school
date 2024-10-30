@@ -16,22 +16,22 @@ export class BeneficiosCtaComponent {
       titulo: 'Metodologia Inovadora',
       descricao:
         'Aprenda inglês de forma rápida, prática e eficaz com nossa metodologia exclusiva.',
-      cor: 'var(--cor-texto-secundaria)',
-    }, // Verde Esmeralda
+      cor: 'var(--cor-texto-primaria)',
+    },
     {
       icone: 'fa fa-users',
       titulo: 'Professores Experientes',
       descricao:
         'Nossos professores são altamente qualificados e apaixonados por ensinar inglês.',
-      cor: 'var(--cor-texto-secundaria)',
-    }, // Dourado Quente
+      cor: 'var(--cor-texto-primaria)',
+    },
     {
       icone: 'fa fa-book',
       titulo: 'Material Didático Completo',
       descricao:
         'Tenha acesso a um material didático moderno e interativo, com livros, plataformas online e recursos multimídia.',
-      cor: 'var(--cor-texto-secundaria)',
-    }, // Vermelho Escuro ;
+      cor: 'var(--cor-texto-primaria)',
+    },
   ];
 
   aplicarCor(event: any): void {

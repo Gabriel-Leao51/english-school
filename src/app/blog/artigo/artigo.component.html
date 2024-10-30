@@ -1,1 +1,20 @@
-<p>artigo works!</p>
+<div class="card" *ngIf="artigo">
+  <img
+    *ngIf="artigo.imageUrl"
+    [src]="artigo.imageUrl"
+    alt="{{ artigo.title }}"
+    class="card-img-top"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ artigo.title }}</h5>
+    <p class="card-text">{{ truncateContent(artigo.content) }}</p>
+    <p class="card-text">
+      <small class="text-muted"
+        >Publicado em: {{ artigo.createdAt | date }}</small
+      >
+    </p>
+    <a [routerLink]="['/artigos', artigo._id]" class="btn btn-primary"
+      >Ler mais</a
+    >
+  </div>
+</div>

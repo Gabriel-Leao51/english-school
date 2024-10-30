@@ -78,7 +78,8 @@
   align-items: flex-start; /* Alinha os itens à esquerda */
   background: linear-gradient(
     to bottom right,
-    rgba(41, 61, 113, 0.7),
+    var(--cor-primaria-transparente),
+    var(--cor-fundo-alternativa-transparente),
     rgba(31, 31, 31, 0.7)
   );
 }

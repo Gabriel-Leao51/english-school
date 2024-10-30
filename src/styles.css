@@ -15,6 +15,10 @@
   /* Cores Neutras */
   --cor-texto-primaria: #f5f5f5; /* Cinza muito claro -  alta legibilidade no fundo escuro */
   --cor-texto-secundaria: #b3b3b3; /* Cinza claro -  para textos secundários */
+
+  /* Transparentes */
+  --cor-primaria-transparente: rgba(41, 61, 113, 0.9);
+  --cor-fundo-alternativa-transparente: rgba(31, 31, 31, 0.9);
 }
 
 body {

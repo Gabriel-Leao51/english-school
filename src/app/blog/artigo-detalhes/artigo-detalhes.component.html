@@ -1,0 +1,22 @@
+<div *ngIf="isLoading">Carregando artigo...</div>
+
+<div *ngIf="!isLoading && artigo">
+  <h2>{{ artigo.title }}</h2>
+  <img
+    *ngIf="artigo.imageUrl"
+    [src]="artigo.imageUrl"
+    alt="{{ artigo.title }}"
+  />
+  <p>{{ artigo.content }}</p>
+  <p>
+    <small>Publicado em: {{ artigo.createdAt | date }}</small
+    ><br />
+    <small>Por: {{ artigo.author }}</small
+    ><br />
+    <small>Categoria: {{ artigo.category }}</small>
+  </p>
+
+  <p><a [routerLink]="['/blog']">Voltar para o Blog</a></p>
+</div>
+
+<div *ngIf="!isLoading && !artigo">Artigo não encontrado.</div>

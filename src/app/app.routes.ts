@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { CursoDetalhesComponent } from './cursos/curso-detalhes/curso-detalhes.component';
 import { ProfessoresComponent } from './metodo/professores/professores.component';
+import { ArtigoDetalhesComponent } from './blog/artigo-detalhes/artigo-detalhes.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./cursos/cursos.component').then((c) => c.CursosComponent),
   },
+  { path: 'cursos/:id', component: CursoDetalhesComponent },
+
   {
     path: 'metodo',
     loadComponent: () =>
@@ -34,6 +37,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./blog/blog.component').then((c) => c.BlogComponent),
   },
+  { path: 'artigos/:id', component: ArtigoDetalhesComponent },
+
   {
     path: 'login',
     loadComponent: () =>
@@ -46,6 +51,5 @@ export const routes: Routes = [
         (c) => c.CadastroComponent
       ),
   },
-  { path: 'cursos/:id', component: CursoDetalhesComponent },
   // { path: '**', component: PaginaNaoEncontradaComponent }, // Rota para página não encontrada (opcional)
 ];
