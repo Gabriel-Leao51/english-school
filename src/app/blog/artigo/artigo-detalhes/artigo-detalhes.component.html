@@ -1,6 +1,8 @@
+<app-blog-banner [artigo]="artigo" [isArticleDetail]="true" />
+
 <div *ngIf="isLoading">Carregando artigo...</div>
 
-<div *ngIf="!isLoading && artigo">
+<div class="artigo-detalhes" *ngIf="!isLoading && artigo">
   <h2>{{ artigo.title }}</h2>
   <img
     *ngIf="artigo.imageUrl"

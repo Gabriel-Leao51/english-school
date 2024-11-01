@@ -1,0 +1,29 @@
+.blog-banner {
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-fundo-alternativa)
+  );
+  border-radius: 16px 16px 0 0; /* Cantos arredondados apenas no topo */
+  padding: 3rem 0; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 0.3rem;
+}
+
+.blog-banner-content {
+  max-width: 900px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 20px; /* Espaçamento interno horizontal */
+}
+
+.blog-banner h2 {
+  color: var(--cor-texto-primaria); /* Cor do título */
+  font-size: 2.5rem; /* Tamanho da fonte do título */
+  margin-bottom: 1.5rem; /* Espaçamento entre o título e o parágrafo */
+}
+
+.blog-banner p {
+  color: var(--cor-texto-primaria); /* Cor do parágrafo */
+  font-size: 1.125rem; /* Tamanho da fonte do parágrafo */
+  line-height: 1.6; /* Espaçamento entre linhas */
+}

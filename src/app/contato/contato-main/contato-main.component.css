@@ -8,6 +8,8 @@
     var(--cor-fundo)
   );
   background-image: url("/assets/imagens/contato-bg.jpg");
+  background-size: auto;
+  background-repeat: repeat-x;
   border-radius: 8px;
   display: flex;
   align-items: flex-start;

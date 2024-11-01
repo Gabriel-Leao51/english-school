@@ -1,0 +1,32 @@
+.blog-main {
+  background-image: url("/assets/imagens/blog.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--cor-texto-primaria);
+  padding: 2rem;
+}
+
+.blog-main h1 {
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.blog-main p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: var(--cor-destaque-1);
+  color: var(--cor-texto-primaria);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+}
+
+button:hover {
+  background-color: var(--cor-primaria);
+}

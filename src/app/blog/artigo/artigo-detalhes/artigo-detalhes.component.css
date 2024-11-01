@@ -1,0 +1,48 @@
+.artigo-detalhes {
+  background-image: url("/assets/imagens/blog.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--cor-texto-primaria);
+  padding: 2rem;
+}
+
+.artigo-detalhes h2 {
+  color: var(--cor-secundaria);
+  margin-bottom: 1rem;
+}
+
+.artigo-detalhes img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+}
+
+.artigo-detalhes p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.artigo-detalhes a {
+  color: var(--cor-destaque-1);
+  text-decoration: none; /* Remove a decoração padrão do link */
+  border-bottom: 2px solid var(--cor-destaque-1); /* Adiciona uma linha inferior como decoração */
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.artigo-detalhes a:hover {
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+/* Responsividade para telas menores */
+
+@media (max-width: 768px) {
+  .card img {
+    height: 150px; /* Ajusta a altura da imagem */
+  }
+  .card {
+    width: 100%; /* Os cards ocupam toda a largura */
+  }
+}

@@ -1,0 +1,57 @@
+.card {
+  background: linear-gradient(
+    to bottom,
+    var(--cor-primaria-transparente),
+    var(--cor-fundo-alternativa-transparente)
+  );
+  border: none;
+  max-width: 60%;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden; /* Impede que a imagem ultrapasse as bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves */
+}
+
+.card:hover {
+  transform: translateY(
+    -5px
+  ); /* Move o card ligeiramente para cima ao passar o mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+}
+
+.card img {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  height: 200px;
+  object-fit: cover; /* Garante que a imagem cubra toda a área, mesmo com diferentes proporções */
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  color: var(--cor-texto-primaria);
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: var(--cor-texto-secundaria);
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  padding: 0.4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--cor-texto-primaria);
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-destaque-1);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--cor-fundo);
+  border-color: var(--cor-primaria);
+}

@@ -1,0 +1,7 @@
+<section class="blog-banner">
+  <div class="blog-banner-content">
+    <h2>{{ titulo }}</h2>
+    <p *ngIf="!isArticleDetail">{{ paragrafo }}</p>
+    <p *ngIf="isArticleDetail">{{ paragrafo }}</p>
+  </div>
+</section>

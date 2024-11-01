@@ -2,15 +2,21 @@
   <p>Carregando artigos...</p>
 </div>
 
-<div *ngIf="!isLoading && artigos.length > 0">
+<div class="blog-main" *ngIf="!isLoading && artigos.length > 0">
   <div *ngFor="let artigo of artigos">
-    <app-artigo [artigo]="artigo"></app-artigo>
+    <app-artigo-card
+      [artigo]="artigo"
+      [modalContainer]="modalContainer"
+      (artigoEditado)="reloadArtigos()"
+      (artigoExcluido)="reloadArtigos()"
+    ></app-artigo-card>
   </div>
+  <button (click)="abrirModalNovoPost()">Criar Artigo</button>
 </div>
 
 <div *ngIf="!isLoading && artigos.length === 0">
   <p>Ainda não há nenhum artigo. Clique aqui para criar o primeiro:</p>
+  <button (click)="abrirModalNovoPost()">Criar Artigo</button>
 </div>
-<button (click)="abrirModalNovoPost()">Criar Artigo</button>
 
 <ng-template #modal></ng-template>

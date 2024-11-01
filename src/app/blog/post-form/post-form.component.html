@@ -1,11 +1,11 @@
-<app-modal [isOpen]="showModal" (closed)="closeModal()" id="novoPostModal">
-  <div class="modal" id="novoPostModal">
+<app-modal [isOpen]="isOpen" (closed)="closeModal()" id="postModal">
+  <div class="modal" id="postModal">
     <div class="modal-content">
       <div class="container mt-3">
         <div class="row justify-content-center">
           <div class="col-md-12">
-            <h2>Novo Post</h2>
-            <form [formGroup]="novoPostForm" (ngSubmit)="onSubmit()">
+            <h2>{{ isEditing ? "Editar Post" : "Novo Post" }}</h2>
+            <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
               <div class="form-group">
                 <label for="title">Título:</label>
                 <input
@@ -17,12 +17,12 @@
                 />
                 <div
                   *ngIf="
-                    novoPostForm.get('title')?.touched &&
-                    novoPostForm.get('title')?.invalid
+                    postForm.get('title')?.touched &&
+                    postForm.get('title')?.invalid
                   "
                   class="text-danger"
                 >
-                  <div *ngIf="novoPostForm.get('title')?.hasError('required')">
+                  <div *ngIf="postForm.get('title')?.hasError('required')">
                     Título é obrigatório
                   </div>
                 </div>
@@ -39,14 +39,12 @@
                 ></textarea>
                 <div
                   *ngIf="
-                    novoPostForm.get('content')?.touched &&
-                    novoPostForm.get('content')?.invalid
+                    postForm.get('content')?.touched &&
+                    postForm.get('content')?.invalid
                   "
                   class="text-danger"
                 >
-                  <div
-                    *ngIf="novoPostForm.get('content')?.hasError('required')"
-                  >
+                  <div *ngIf="postForm.get('content')?.hasError('required')">
                     Conteúdo é obrigatório
                   </div>
                 </div>
@@ -63,12 +61,12 @@
                 />
                 <div
                   *ngIf="
-                    novoPostForm.get('author')?.touched &&
-                    novoPostForm.get('author')?.invalid
+                    postForm.get('author')?.touched &&
+                    postForm.get('author')?.invalid
                   "
                   class="text-danger"
                 >
-                  <div *ngIf="novoPostForm.get('author')?.hasError('required')">
+                  <div *ngIf="postForm.get('author')?.hasError('required')">
                     Autor é obrigatório
                   </div>
                 </div>
@@ -85,14 +83,12 @@
                 />
                 <div
                   *ngIf="
-                    novoPostForm.get('category')?.touched &&
-                    novoPostForm.get('category')?.invalid
+                    postForm.get('category')?.touched &&
+                    postForm.get('category')?.invalid
                   "
                   class="text-danger"
                 >
-                  <div
-                    *ngIf="novoPostForm.get('category')?.hasError('required')"
-                  >
+                  <div *ngIf="postForm.get('category')?.hasError('required')">
                     Categoria é obrigatória
                   </div>
                 </div>
@@ -111,9 +107,9 @@
               <button
                 type="submit"
                 class="btn btn-primary"
-                [disabled]="!novoPostForm.valid"
+                [disabled]="!postForm.valid"
               >
-                Criar Post
+                {{ isEditing ? "Salvar Alterações" : "Criar Post" }}
               </button>
             </form>
           </div>

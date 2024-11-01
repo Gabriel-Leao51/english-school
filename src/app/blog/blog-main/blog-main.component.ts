@@ -4,23 +4,22 @@ import { NgFor, NgIf } from '@angular/common';
 import { BlogService } from '../../services/blog.service';
 import { Artigo } from '../../models/artigo.model';
 
-import { ArtigoComponent } from '../artigo/artigo.component';
+import { ArtigoComponent } from '../artigo/artigo-card/artigo-card.component';
 import { ModalComponent } from '../../shared/modal/modal.component';
-import { NovoPostComponent } from '../novo-post/novo-post.component';
+import { PostFormComponent } from '../post-form/post-form.component';
 
 import { finalize, tap } from 'rxjs';
 
 @Component({
   selector: 'app-blog-main',
   standalone: true,
-  imports: [ArtigoComponent, ModalComponent, NovoPostComponent, NgFor, NgIf],
+  imports: [ArtigoComponent, ModalComponent, PostFormComponent, NgFor, NgIf],
   templateUrl: './blog-main.component.html',
   styleUrl: './blog-main.component.css',
 })
 export class BlogMainComponent implements OnInit {
-  @ViewChild('modal', { read: ViewContainerRef })
+  @ViewChild('modal', { read: ViewContainerRef, static: true })
   modalContainer!: ViewContainerRef;
-  @ViewChild('novoPostComponent') novoPostComponent!: NovoPostComponent;
   artigos: Artigo[] = [];
   isLoading = true;
   showModal = false;
@@ -32,9 +31,12 @@ export class BlogMainComponent implements OnInit {
   }
 
   abrirModalNovoPost() {
-    const novoPostComponent =
-      this.modalContainer.createComponent(NovoPostComponent);
-    novoPostComponent.instance.openModal();
+    const modalRef = this.modalContainer.createComponent(PostFormComponent);
+    modalRef.instance.isEditing = false; // Define como modo de criação
+    modalRef.instance.artigoSalvo.subscribe(() => {
+      this.reloadArtigos();
+    });
+    modalRef.instance.openModal();
   }
 
   reloadArtigos() {

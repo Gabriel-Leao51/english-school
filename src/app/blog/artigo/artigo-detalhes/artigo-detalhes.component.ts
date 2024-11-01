@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { BlogService } from '../../services/blog.service';
-import { Artigo } from '../../models/artigo.model';
+import { BlogService } from '../../../services/blog.service';
+import { Artigo } from '../../../models/artigo.model';
 import { switchMap } from 'rxjs';
 import { DatePipe, NgIf } from '@angular/common';
+import { BlogBannerComponent } from '../../blog-banner/blog-banner.component';
 
 @Component({
   selector: 'app-artigo-detalhes',
   standalone: true,
-  imports: [RouterLink, NgIf, DatePipe],
+  imports: [RouterLink, NgIf, DatePipe, BlogBannerComponent],
   templateUrl: './artigo-detalhes.component.html',
   styleUrl: './artigo-detalhes.component.css',
 })
