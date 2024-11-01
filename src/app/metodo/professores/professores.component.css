@@ -9,7 +9,7 @@
 .professores-section {
   padding: 2rem 0;
   background-image: url("/assets/imagens/professores-bg.jpg"); /* Substitua pela URL da sua imagem */
-  background-size: auto;
+  background-size: cover;
   background-position: center;
   position: relative;
 }
@@ -23,7 +23,11 @@
   width: 100%;
   background-image: inherit;
   background-position: 50% 20%;
-  background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-fundo));
+  background: linear-gradient(
+    to bottom,
+    var(--cor-primaria-transparente),
+    var(--cor-fundo-alternativa-transparente)
+  );
   padding: 20px;
   border-radius: 8px;
   position: relative;

@@ -3,8 +3,8 @@
 .modal-content {
   background: linear-gradient(
     to bottom right,
-    var(--cor-primaria-transparente),
-    var(--cor-fundo-alternativa-transparente)
+    var(--cor-primaria-transparente-leve),
+    var(--cor-fundo-alternativa-transparente-leve)
   ); /* Gradiente */
   border: none; /* Remove a borda */
   border-radius: 8px;

@@ -5,11 +5,12 @@ import { Artigo } from '../../../models/artigo.model';
 import { switchMap } from 'rxjs';
 import { DatePipe, NgIf } from '@angular/common';
 import { BlogBannerComponent } from '../../blog-banner/blog-banner.component';
+import { Nl2brPipe } from './nl2br.pipe';
 
 @Component({
   selector: 'app-artigo-detalhes',
   standalone: true,
-  imports: [RouterLink, NgIf, DatePipe, BlogBannerComponent],
+  imports: [RouterLink, NgIf, DatePipe, BlogBannerComponent, Nl2brPipe],
   templateUrl: './artigo-detalhes.component.html',
   styleUrl: './artigo-detalhes.component.css',
 })

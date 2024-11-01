@@ -9,7 +9,9 @@
     [src]="artigo.imageUrl"
     alt="{{ artigo.title }}"
   />
-  <p>{{ artigo.content }}</p>
+  <div class="content-container">
+    <p [innerHTML]="artigo.content | nl2br">{{ artigo.content }}</p>
+  </div>
   <p>
     <small>Publicado em: {{ artigo.createdAt | date }}</small
     ><br />

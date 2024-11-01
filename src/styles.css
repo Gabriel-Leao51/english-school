@@ -17,8 +17,10 @@
   --cor-texto-secundaria: #b3b3b3; /* Cinza claro -  para textos secundários */
 
   /* Transparentes */
-  --cor-primaria-transparente: rgba(41, 61, 113, 0.9);
-  --cor-fundo-alternativa-transparente: rgba(31, 31, 31, 0.9);
+  --cor-primaria-transparente: rgba(41, 61, 113, 0.5);
+  --cor-fundo-alternativa-transparente: rgba(31, 31, 31, 0.5);
+  --cor-primaria-transparente-leve: rgba(41, 61, 113, 0.8);
+  --cor-fundo-alternativa-transparente-leve: rgba(31, 31, 31, 0.8);
 }
 
 body {

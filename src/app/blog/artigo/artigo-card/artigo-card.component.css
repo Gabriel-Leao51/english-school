@@ -1,4 +1,6 @@
 .card {
+  display: flex;
+  justify-content: space-between;
   background: linear-gradient(
     to bottom,
     var(--cor-primaria-transparente),
@@ -21,18 +23,20 @@
 }
 
 .card img {
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   padding-left: 1rem;
-  height: 200px;
+  height: 180px;
   object-fit: cover; /* Garante que a imagem cubra toda a área, mesmo com diferentes proporções */
 }
 
 .card-body {
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .card-title {
+  font-size: 1.2rem;
   color: var(--cor-texto-primaria);
+  margin-top: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
@@ -52,6 +56,13 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
   border-color: var(--cor-primaria);
+}
+
+.artigo-control {
+  display: flex;
+  max-width: 6.8rem;
+  justify-content: space-between;
+  padding-top: 1rem;
 }
