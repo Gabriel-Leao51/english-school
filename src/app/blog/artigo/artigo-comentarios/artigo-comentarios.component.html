@@ -1,0 +1,88 @@
+<!-- artigo-comentarios.component.html -->
+
+<div *ngIf="isLoading">Carregando comentários...</div>
+
+<div *ngIf="!isLoading">
+  <h3 class="comments-title">Comentários ({{ comentarios.length }})</h3>
+
+  <div class="comment-list">
+    <div *ngFor="let comentario of comentarios" class="comment">
+      <div class="comment-header">
+        <span class="comment-author">{{ comentario.author }}</span>
+        <div>
+          <span class="comment-date">{{
+            comentario.createdAt | date : "medium"
+          }}</span>
+          <span class="delete-icon" (click)="excluirComentario(comentario)">
+            <i class="fas fa-trash-alt"></i>
+            <!-- Ícone de lixeira -->
+          </span>
+        </div>
+      </div>
+      <div class="comment-body">
+        <p>{{ comentario.content }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="comentarios.length === 0" class="no-comments">
+      <p>Seja o primeiro a comentar!</p>
+    </div>
+  </div>
+
+  <div class="comment-form">
+    <h4 class="comment-form-title">Deixe seu comentário</h4>
+    <form [formGroup]="novoComentarioForm" (ngSubmit)="adicionarComentario()">
+      <div class="form-group">
+        <label for="author" class="comment-form-label">Seu Nome:</label>
+        <input
+          type="text"
+          id="author"
+          class="form-control"
+          formControlName="author"
+          required
+        />
+        <div
+          *ngIf="
+            novoComentarioForm.get('author')!.invalid &&
+            (novoComentarioForm.get('author')!.dirty ||
+              novoComentarioForm.get('author')!.touched)
+          "
+          class="error-message"
+        >
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="content" class="comment-form-label"
+          >Escreva seu comentário:</label
+        >
+        <textarea
+          id="content"
+          class="form-control"
+          formControlName="content"
+          rows="3"
+          required
+        ></textarea>
+        <div
+          *ngIf="
+            novoComentarioForm.get('content')!.invalid &&
+            (novoComentarioForm.get('content')!.dirty ||
+              novoComentarioForm.get('content')!.touched)
+          "
+          class="error-message"
+        >
+          Comentário é obrigatório.
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="novoComentarioForm.invalid"
+      >
+        Adicionar Comentário
+      </button>
+    </form>
+  </div>
+</div>

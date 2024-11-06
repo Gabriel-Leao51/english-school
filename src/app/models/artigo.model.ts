@@ -1,6 +1,7 @@
 // src/app/models/artigo.model.ts
 
 export interface Comment {
+  _id: string;
   author: string;
   content: string;
   createdAt: Date;

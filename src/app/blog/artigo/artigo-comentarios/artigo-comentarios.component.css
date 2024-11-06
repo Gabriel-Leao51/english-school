@@ -1,0 +1,98 @@
+/* artigo-comentarios.component.css */
+
+.comments-title {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: var(--cor-texto-primaria); /* Use sua variável de cor */
+}
+
+.comment-list {
+  margin-bottom: 30px;
+}
+
+.comment {
+  border: 1px solid var(--cor-fundo-alternativa); /* Use sua variável de cor */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  max-width: 40%;
+  background: linear-gradient(
+    to bottom,
+    var(--cor-primaria-transparente),
+    var(--cor-fundo-alternativa-transparente)
+  );
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: var(--cor-texto-primaria);
+}
+
+.comment-date {
+  color: var(--cor-texto-secundaria);
+}
+
+.comment-body p {
+  margin: 0;
+  color: var(--cor-texto-primaria);
+}
+
+.no-comments {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--cor-texto-secundaria);
+}
+
+.comment-form {
+  border-top: 1px solid var(--cor-fundo-alternativa); /* Use sua variável de cor */
+  padding-top: 20px;
+}
+
+.comment-form-title {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: var(--cor-secundaria);
+}
+
+.comment-form-label {
+  display: block; /* Para que a label fique acima do input */
+  margin-bottom: 5px;
+  color: var(--cor-texto-secundaria);
+}
+
+.form-control {
+  border: 1px solid var(--cor-texto-secundaria);
+  background-color: var(--cor-fundo-alternativa);
+  color: var(--cor-texto-primaria);
+}
+
+.error-message {
+  color: var(--cor-destaque-2); /* Cor de erro */
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.delete-icon {
+  margin-left: 0.3rem;
+  cursor: pointer;
+  color: var(--cor-primaria); /* Cor do ícone (vermelho por exemplo) */
+  float: right; /* Posiciona o ícone à direita */
+  margin-top: -3px; /* ajuste conforme necessário */
+}
+
+.delete-icon:hover {
+  color: var(--cor-destaque-2);
+}
+
+/* Ícone maior */
+.delete-icon i {
+  font-size: 1.2em;
+}

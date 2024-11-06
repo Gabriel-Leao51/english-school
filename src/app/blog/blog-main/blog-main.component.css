@@ -1,3 +1,56 @@
+/* blog-main.component.css */
+
+.search-container {
+  top: 20px; /* Ajuste conforme necessário */
+  right: 20px; /* Ajuste conforme necessário */
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente */
+}
+
+.search-input {
+  margin-right: 10px;
+}
+
+.filter-buttons {
+  display: flex;
+}
+
+.filter-button {
+  margin-left: 5px; /* Espaçamento entre os botões */
+  padding: 5px 10px; /* Ajuste o padding conforme necessário */
+  border: 1px solid var(--cor-texto-secundaria); /* Borda padrão */
+  background-color: transparent; /* Fundo transparente */
+  color: var(--cor-texto-secundaria); /* Cor do texto padrão */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.filter-button.active {
+  /* Estilo para o botão ativo */
+  background-color: var(--cor-destaque-1); /* Cor de fundo quando ativo */
+  color: var(--cor-texto-primaria); /* Cor do texto quando ativo */
+  border-color: var(--cor-destaque-1); /* Cor da borda quando ativo */
+}
+
+/* Estilização do input de busca */
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid var(--cor-texto-secundaria); /* Cor da borda do input */
+  border-radius: 5px; /* Borda arredondada */
+  background-color: var(--cor-fundo-alternativa); /* Cor de fundo do input */
+  color: var(--cor-texto-primaria); /* Cor do texto do input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input[type="text"]:focus {
+  outline: none; /* Remove a borda padrão do foco */
+  border-color: var(--cor-destaque-1); /* Cor da borda ao focar */
+  box-shadow: 0 0 5px var(--cor-destaque-1); /* Sombra ao focar */
+}
+
 .blog-main {
   background-image: url("/assets/imagens/blog.jpg");
   background-size: cover;

@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { BlogService } from '../../../services/blog.service';
-import { Artigo } from '../../../models/artigo.model';
-import { switchMap } from 'rxjs';
 import { DatePipe, NgIf } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+
 import { BlogBannerComponent } from '../../blog-banner/blog-banner.component';
+import { ArtigoComentariosComponent } from '../artigo-comentarios/artigo-comentarios.component';
+
+import { Artigo } from '../../../models/artigo.model';
+import { BlogService } from '../../../services/blog.service';
+
 import { Nl2brPipe } from './nl2br.pipe';
+
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-artigo-detalhes',
   standalone: true,
-  imports: [RouterLink, NgIf, DatePipe, BlogBannerComponent, Nl2brPipe],
+  imports: [
+    ArtigoComentariosComponent,
+    RouterLink,
+    NgIf,
+    DatePipe,
+    BlogBannerComponent,
+    Nl2brPipe,
+  ],
   templateUrl: './artigo-detalhes.component.html',
   styleUrl: './artigo-detalhes.component.css',
 })

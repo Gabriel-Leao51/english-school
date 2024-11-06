@@ -21,6 +21,8 @@
   </p>
 
   <p><a [routerLink]="['/blog']">Voltar para o Blog</a></p>
+
+  <app-artigo-comentarios [artigoId]="artigo._id"></app-artigo-comentarios>
 </div>
 
 <div *ngIf="!isLoading && !artigo">Artigo não encontrado.</div>
