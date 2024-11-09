@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CursoDetalhesComponent } from './cursos/curso-detalhes/curso-detalhes.component';
 import { ProfessoresComponent } from './metodo/professores/professores.component';
 import { ArtigoDetalhesComponent } from './blog/artigo/artigo-detalhes/artigo-detalhes.component';
+import { MatriculaComponent } from './matricula/matricula.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,15 @@ export const routes: Routes = [
       import('./cursos/cursos.component').then((c) => c.CursosComponent),
   },
   { path: 'cursos/:id', component: CursoDetalhesComponent },
+
+  {
+    path: 'matricula/:id',
+    loadComponent: () =>
+      import('./matricula/matricula.component').then(
+        (c) => c.MatriculaComponent
+      ),
+  },
+  { path: 'matricula', component: MatriculaComponent },
 
   {
     path: 'metodo',

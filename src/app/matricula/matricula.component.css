@@ -1,0 +1,142 @@
+/* Estilos para os títulos */
+h2 {
+  color: var(--cor-texto-primaria);
+  font-size: 2rem;
+  margin-bottom: 2rem; /* Margem inferior reduzida */
+  text-align: center;
+}
+
+/* Estilos para os formulários */
+.form-container {
+  background: linear-gradient(
+    to bottom,
+    var(--cor-primaria-transparente),
+    var(--cor-fundo-alternativa-transparente)
+  );
+  max-width: 600px; /* Largura máxima do formulário */
+  margin: 0.5rem auto; /* Centraliza o formulário horizontalmente */
+  padding: 20px; /* Adiciona padding interno */
+  border: 1px solid var(--cor-texto-secundaria); /* Borda opcional */
+  border-radius: 8px; /* Borda arredondada opcional */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Margem inferior reduzida */
+  display: flex;
+  flex-direction: column; /* Itens alinhados verticalmente */
+  align-items: flex-start; /* Alinhamento à esquerda */ /* Importante: Alinhamento à esquerda para labels e inputs */
+}
+
+.form-label {
+  color: var(--cor-texto-primaria);
+  font-size: 1rem;
+  margin-bottom: 0.5rem; /* Espaçamento entre label e input */
+  display: block; /* Garante que a label ocupe toda a largura */
+}
+
+.form-control {
+  width: 80%; /* Input ocupa toda a largura do container */
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-texto-secundaria);
+  color: var(--cor-texto-primaria);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* Estilos para checkbox */
+.form-check {
+  /* Classe para o container do checkbox */
+  display: flex;
+  align-items: center; /* Alinha verticalmente o checkbox e o label */
+  margin-bottom: 1rem;
+}
+
+.form-check-input {
+  /* Estilos para o checkbox */
+  margin-right: 0.5rem; /* Espaçamento entre checkbox e label */
+  appearance: none; /* Reset de estilos padrão */
+  width: 1.5em; /* Tamanho */
+  height: 1.5em; /* Tamanho */
+  border: 1px solid var(--cor-texto-secundaria); /* Borda */
+  border-radius: 0.25em; /* Borda arredondada */
+  background-color: var(--cor-fundo); /* Fundo */
+  display: grid; /* Para centralizar o ícone */
+  place-content: center; /* Centraliza */
+}
+
+.form-check-input:checked::before {
+  /* Ícone de check */
+  content: "\2713"; /* Caractere Unicode para check */
+  color: var(--cor-destaque-1);
+  font-size: 1.1em;
+}
+
+.form-check-label {
+  /* Estilos para o label do checkbox */
+  color: var(--cor-texto-primaria);
+  font-size: 1rem;
+  cursor: pointer; /* Cursor de pointer ao passar o mouse sobre o label */
+}
+
+/* Estilos para os botões */
+.btn {
+  /* Classe base para botões */
+  display: block; /* Ocupa toda a largura */
+  margin: 20px auto 0; /* Margem superior e centralizado */
+  padding: 10px 30px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none; /* Remove a borda padrão */
+  cursor: pointer; /* Cursor de pointer */
+  transition: background-color 0.3s; /* Transição suave na cor de fundo */
+  text-align: center; /* Centraliza o texto */
+}
+
+.btn-primary {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-fundo);
+}
+
+.btn-primary:hover {
+  background-color: #c89f2f; /* Cor mais escura ao passar o mouse */
+  color: var(--cor-texto-primaria);
+}
+
+/* Estilos para links */
+a {
+  color: var(--cor-destaque-1);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para mensagens de erro */
+.text-danger {
+  color: var(--cor-destaque-2);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.alert {
+  /* Estilo geral para alerts */
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  /* Estilo para alert de erro */
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Responsividade - ajuste conforme necessário */
+@media (max-width: 768px) {
+  .form-control {
+    width: 90%; /* Reduz a largura dos inputs em telas menores */
+  }
+}

@@ -52,7 +52,12 @@
         </div>
 
         <div class="cta">
-          <button class="btn btn-primary">Matricule-se Agora</button>
+          <button
+            class="btn btn-primary"
+            [routerLink]="['/matricula', curso._id]"
+          >
+            Matricule-se Agora
+          </button>
         </div>
       </div>
 

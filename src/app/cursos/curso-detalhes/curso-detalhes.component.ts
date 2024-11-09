@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CursoService } from '../../services/curso.service'; // Importe o serviço de cursos
 import { Curso } from '../../models/curso.model'; // Importe a interface Curso
 import { CurrencyPipe, NgFor, NgIf, isPlatformBrowser } from '@angular/common';
@@ -7,7 +7,7 @@ import { CurrencyPipe, NgFor, NgIf, isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-curso-detalhes',
   standalone: true,
-  imports: [NgIf, NgFor, CurrencyPipe],
+  imports: [NgIf, NgFor, CurrencyPipe, RouterLink],
   templateUrl: './curso-detalhes.component.html',
   styleUrls: ['./curso-detalhes.component.css'],
 })

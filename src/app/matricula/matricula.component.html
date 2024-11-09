@@ -1,0 +1,130 @@
+<div class="form-container">
+  <h2>Formulário de Matrícula</h2>
+
+  <form [formGroup]="matriculaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nome" class="form-label">Nome:</label>
+      <input
+        type="text"
+        id="nome"
+        formControlName="nome"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          matriculaForm.get('nome')?.invalid &&
+          (matriculaForm.get('nome')?.dirty ||
+            matriculaForm.get('nome')?.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="matriculaForm.get('nome')?.errors?.['required']">
+          Nome é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="form-label">Email:</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          matriculaForm.get('email')?.invalid &&
+          (matriculaForm.get('email')?.dirty ||
+            matriculaForm.get('email')?.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="matriculaForm.get('email')?.errors?.['required']">
+          Email é obrigatório.
+        </div>
+        <div *ngIf="matriculaForm.get('email')?.errors?.['email']">
+          Email inválido.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefone" class="form-label">Telefone:</label>
+      <input
+        type="text"
+        id="telefone"
+        formControlName="telefone"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          matriculaForm.get('telefone')?.invalid &&
+          (matriculaForm.get('telefone')?.dirty ||
+            matriculaForm.get('telefone')?.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="matriculaForm.get('telefone')?.errors?.['required']">
+          Telefone é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="curso" class="form-label">Curso:</label>
+      <select id="curso" formControlName="curso" class="form-control">
+        <option *ngFor="let curso of cursos" [value]="curso._id">
+          {{ curso.titulo }}
+        </option>
+        <option
+          *ngIf="cursoSelecionado"
+          [value]="cursoSelecionado._id"
+          selected
+          hidden
+        >
+          {{ cursoSelecionado.titulo }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          matriculaForm.get('curso')?.invalid &&
+          (matriculaForm.get('curso')?.dirty ||
+            matriculaForm.get('curso')?.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="matriculaForm.get('curso')?.errors?.['required']">
+          Curso é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="checkbox"
+        id="termos"
+        formControlName="termos"
+        class="form-check-input"
+      />
+      <label for="termos" class="form-check-label"
+        >Aceito os termos e condições</label
+      >
+      <div
+        *ngIf="
+          matriculaForm.get('termos')?.invalid &&
+          (matriculaForm.get('termos')?.dirty ||
+            matriculaForm.get('termos')?.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="matriculaForm.get('termos')?.errors?.['required']">
+          Você precisa aceitar os termos e condições.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <!-- Adicione a classe btn e btn-primary -->
+  </form>
+</div>
