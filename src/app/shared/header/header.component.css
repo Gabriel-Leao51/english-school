@@ -86,3 +86,94 @@
   background-color: var(--cor-fundo);
   transition-delay: 0.1s;
 }
+
+.hamburger {
+  display: none; /* Oculta o botão em telas grandes */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10; /* Garante que o botão fique acima do menu */
+}
+
+.hamburger .line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--cor-texto-primaria);
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Mostra o botão em telas menores */
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Esconde o menu inicialmente */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 9;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons,
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav.active {
+    right: 0; /* Mostra o menu quando ativo */
+  }
+
+  .nav ul {
+    flex-direction: column; /* Alinha os itens verticalmente */
+    text-align: center;
+  }
+
+  .nav li {
+    margin: 10px 0; /* Espaçamento vertical entre os itens */
+  }
+  .buttons.active {
+    display: flex !important;
+  }
+  .buttons {
+    display: none;
+    flex-direction: column;
+  }
+
+  .buttons.active {
+    margin-top: 20px;
+  }
+
+  .buttons button {
+    margin: 10px 0px;
+  }
+}

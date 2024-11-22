@@ -8,7 +8,7 @@
         </section>
       </div>
       <div class="image-container">
-        <img [src]="curso.imagem" [alt]="curso.titulo" />
+        <img [src]="curso.imagem" appCarregarImagem [alt]="curso.titulo" />
       </div>
     </div>
   </section>
@@ -52,10 +52,7 @@
         </div>
 
         <div class="cta">
-          <button
-            class="btn btn-primary"
-            [routerLink]="['/matricula', curso._id]"
-          >
+          <button class="btn btn-primary" (click)="matricular()">
             Matricule-se Agora
           </button>
         </div>

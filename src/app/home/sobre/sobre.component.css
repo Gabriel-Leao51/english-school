@@ -22,6 +22,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
+  height: 200px;
   width: 100%; /* Imagem ocupa a largura do container */
   max-width: auto; /* Largura máxima da imagem */
   height: auto; /* Altura ajusta automaticamente */

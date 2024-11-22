@@ -1,10 +1,11 @@
 import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
 
 @Component({
   selector: 'app-cursos-grid',
   standalone: true,
-  imports: [NgFor, NgClass],
+  imports: [NgFor, CarregarImagemDirective],
   templateUrl: './cursos-grid.component.html',
   styleUrl: './cursos-grid.component.css',
 })

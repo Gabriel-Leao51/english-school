@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CursoService } from '../../services/curso.service';
 import { Curso } from '../../models/curso.model';
 import { NgFor, NgIf } from '@angular/common';
-import { BeneficiosCtaComponent } from '../beneficios-cta/beneficios-cta.component';
 import { RouterLink } from '@angular/router';
+import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
 
 @Component({
   selector: 'app-cursos-main',
   standalone: true,
-  imports: [NgIf, NgFor, BeneficiosCtaComponent, RouterLink],
+  imports: [NgIf, NgFor, RouterLink, CarregarImagemDirective],
   providers: [CursoService],
   templateUrl: './cursos-main.component.html',
   styleUrls: ['./cursos-main.component.css'],

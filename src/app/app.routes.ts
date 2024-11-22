@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { CursoDetalhesComponent } from './cursos/curso-detalhes/curso-detalhes.component';
 import { ProfessoresComponent } from './metodo/professores/professores.component';
 import { ArtigoDetalhesComponent } from './blog/artigo/artigo-detalhes/artigo-detalhes.component';
-import { MatriculaComponent } from './matricula/matricula.component';
 
 export const routes: Routes = [
   {
@@ -23,15 +22,6 @@ export const routes: Routes = [
   { path: 'cursos/:id', component: CursoDetalhesComponent },
 
   {
-    path: 'matricula/:id',
-    loadComponent: () =>
-      import('./matricula/matricula.component').then(
-        (c) => c.MatriculaComponent
-      ),
-  },
-  { path: 'matricula', component: MatriculaComponent },
-
-  {
     path: 'metodo',
     loadComponent: () =>
       import('./metodo/metodo.component').then((c) => c.MetodoComponent),
@@ -42,6 +32,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./contato/contato.component').then((c) => c.ContatoComponent),
   },
+
   {
     path: 'blog',
     loadComponent: () =>

@@ -7,23 +7,33 @@
       <h1>Keystone English</h1>
     </div>
     <div class="nav-buttons">
-      <nav class="nav">
+      <button class="hamburger" (click)="toggleMenu()">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+      <nav
+        class="nav"
+        [class.active]="menuOpen"
+        (click)="closeMenuOnLinkClick($event)"
+      >
         <ul>
           <li><a [routerLink]="['/home']">Home</a></li>
           <li><a [routerLink]="['/cursos']">Cursos</a></li>
           <li><a [routerLink]="['/metodo']">Método</a></li>
           <li><a [routerLink]="['/contato']">Contato</a></li>
           <li><a [routerLink]="['/blog']">Blog</a></li>
+          <li>
+            <div>
+              <a class="btn" button (click)="abrirModalLogin()"> Login </a>
+
+              <a class="btn" button (click)="abrirModalCadastro()">
+                Cadastre-se
+              </a>
+            </div>
+          </li>
         </ul>
       </nav>
-      <div class="buttons">
-        <button class="btn login" button (click)="abrirModalLogin()">
-          Login
-        </button>
-        <button class="btn cadastrar" button (click)="abrirModalCadastro()">
-          Cadastre-se
-        </button>
-      </div>
     </div>
   </div>
 </header>
