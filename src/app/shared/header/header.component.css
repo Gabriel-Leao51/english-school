@@ -50,11 +50,14 @@
 
 .nav li {
   margin-right: 20px; /* Espaçamento entre os itens do nav */
-  transition: transform 0.2s ease;
   cursor: pointer;
 }
 
-.nav li:hover {
+.nav-links {
+  transition: transform 0.2s ease;
+}
+
+.nav-links:hover {
   transform: scale(1.1);
 }
 
@@ -138,11 +141,11 @@
     transition: right 0.3s ease;
     z-index: 9;
   }
-  .buttons {
+  .btn {
     flex-direction: column;
   }
 
-  .buttons,
+  .btn,
   .nav {
     display: flex;
     align-items: center;
@@ -161,19 +164,16 @@
   .nav li {
     margin: 10px 0; /* Espaçamento vertical entre os itens */
   }
-  .buttons.active {
-    display: flex !important;
-  }
-  .buttons {
-    display: none;
+
+  .btn {
+    display: block;
     flex-direction: column;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0;
   }
 
-  .buttons.active {
+  .btn.active {
     margin-top: 20px;
-  }
-
-  .buttons button {
-    margin: 10px 0px;
   }
 }

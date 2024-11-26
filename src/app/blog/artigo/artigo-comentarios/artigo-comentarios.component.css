@@ -96,3 +96,9 @@
 .delete-icon i {
   font-size: 1.2em;
 }
+
+@media (max-width: 768px) {
+  .comment {
+    max-width: 60%;
+  }
+}

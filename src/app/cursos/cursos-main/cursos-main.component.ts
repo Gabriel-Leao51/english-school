@@ -39,7 +39,7 @@ export class CursosMainComponent implements OnInit {
       case 'Crianças':
         return '6-12 anos';
       case 'Adolescentes':
-        return '13-17 anos';
+        return '13+ anos';
       case 'Adultos':
         return '18+ anos';
       case 'Professores':

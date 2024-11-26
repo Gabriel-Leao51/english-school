@@ -1,5 +1,3 @@
-/* banner.component.css */
-
 .banner-section {
   position: relative;
   text-align: left;
@@ -73,10 +71,10 @@
 
   .image-container {
     order: -1; /* Coloca a imagem acima do texto */
-    margin-bottom: 20px;
   }
 
   .slogan {
+    margin-top: 0.2rem;
     font-size: 2em;
   }
 

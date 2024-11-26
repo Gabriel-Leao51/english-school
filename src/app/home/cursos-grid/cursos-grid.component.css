@@ -6,13 +6,14 @@
     var(--cor-fundo-alternativa),
     var(--cor-primaria)
   );
-  /* border-radius: 16px; */
 }
 
 .curso-card {
-  display: inline-block;
-  width: 250px; /* Ajuste a largura máxima conforme necessário */
-  margin: 25px;
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 250px; /* Largura máxima */
+  margin: 25px auto; /* Margem automática para centralizar */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  padding: 0 15px; /* Adiciona padding horizontal para espaçamento */
 }
 
 .card {
@@ -44,6 +45,7 @@
 .card-title {
   margin: 0;
 }
+
 .card-text {
   margin-bottom: 0;
 }
@@ -65,4 +67,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* Media Queries para responsividade */
+@media (min-width: 768px) {
+  .curso-card {
+    width: calc(25% - 10px); /* Dois cards por linha em telas médias */
+  }
 }

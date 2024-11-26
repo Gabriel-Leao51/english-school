@@ -3,6 +3,7 @@
   background-color: var(--cor-fundo-alternativa);
 }
 
+.banner-content,
 .detalhes-content {
   display: flex;
   justify-content: space-between;
@@ -65,7 +66,8 @@
   );
 }
 
-.secao-secundaria .detalhes-content {
+.banner-content,
+.detalhes-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* Alinha os itens ao topo */
@@ -145,12 +147,12 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .detalhes-content {
+  .banner-content {
     flex-direction: column-reverse;
-    text-align: center;
+    text-align: left;
+    align-items: center;
   }
 
-  .secao-principal img,
   .texto-principal,
   .secao-secundaria .informacoes,
   .secao-secundaria .cta {
@@ -158,8 +160,11 @@
     margin: 20px auto;
   }
 
+  .secao-principal img {
+    margin-top: 0;
+  }
   .secao-secundaria .cta {
-    text-align: center;
+    text-align: left;
   }
 
   .secao-principal h2 {

@@ -177,15 +177,21 @@
   .contato-container {
     flex-direction: column;
     align-items: center;
+    padding: 2rem 1rem;
   }
 
   .contato-rapido {
     width: 100%;
-    border-right: none;
-    padding-right: 0;
-    margin-bottom: 2rem;
+    border: none;
     text-align: center;
-    margin-top: 0; /* Resetando o ajuste no eixo Y */
+    padding: 1rem;
+  }
+
+  .contato-rapido ul {
+    flex-direction: row; /* vertical em telas pequenas */
+    gap: 10px;
+    align-items: center;
+    padding: 0;
   }
 
   .contato-rapido h2,
@@ -194,10 +200,13 @@
   }
 
   .contato-formulario {
-    width: 90%;
+    width: auto;
+    margin: 1.5rem auto; /* Margem automática para centralizar */
+    padding: 1rem;
+    align-items: center; /* Centraliza os elementos do formulário */
   }
 
   .contato-formulario form {
-    width: 100%;
+    align-self: initial;
   }
 }

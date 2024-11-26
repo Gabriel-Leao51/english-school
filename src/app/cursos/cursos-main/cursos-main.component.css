@@ -142,10 +142,13 @@ p {
     text-align: center;
   }
 
-  .image-container,
+  .image-container {
+    width: 50%; /* Ajuste a largura da imagem e do texto */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+
   .text-container {
-    width: 90%; /* Ajuste a largura da imagem e do texto */
-    margin: 20px auto; /* Centraliza horizontalmente */
+    width: 90%;
   }
 
   h2 {
@@ -153,6 +156,10 @@ p {
   }
 
   .card {
-    width: 45%; /* Ajuste a largura dos cards em telas menores */
+    width: 40%; /* Ajuste a largura dos cards em telas menores */
+  }
+
+  .faixa-etaria {
+    position: absolute;
   }
 }

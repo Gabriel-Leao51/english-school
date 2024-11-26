@@ -46,6 +46,10 @@
 /* Responsividade para telas menores */
 
 @media (max-width: 768px) {
+  .content-container {
+    max-width: 80%;
+  }
+
   .card img {
     height: 150px; /* Ajusta a altura da imagem */
   }
