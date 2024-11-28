@@ -8,14 +8,14 @@ import { AuthService } from '../../services/auth.service'; // Importe o serviço
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ToastrService } from 'ngx-toastr';
 import { catchError, tap } from 'rxjs';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { ModalComponent } from '../../shared/modal/modal.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  providers: [AuthService],
   imports: [ReactiveFormsModule, NgIf, HttpClientModule, ModalComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -28,7 +28,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -52,15 +53,17 @@ export class LoginComponent {
       this.authService
         .login(this.loginForm.value)
         .pipe(
-          tap((response) => {
-            localStorage.setItem('token', response.token);
-
-            // Redirecionar o usuário para a página inicial
-            this.router.navigate(['/']);
+          tap(() => {
+            this.toastr.success('Login realizado com sucesso!', 'Bem-Vindo!');
+            this.closeModal('loginModal');
           }),
           catchError((error) => {
-            this.errorMessage = 'Erro ao fazer login: ' + error.message;
-            return of(error); // Propaga o erro como um Observable
+            console.error('Erro no login:', error);
+            this.toastr.error(
+              error.error?.error || 'Erro no login. Verifique email e senha.',
+              'Erro'
+            ); // Exibe a mensagem de erro do backend ou uma mensagem genérica
+            return of(null); // Retorna um observable vazio para evitar erros subsequentes
           })
         )
         .subscribe();

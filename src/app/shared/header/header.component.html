@@ -23,17 +23,26 @@
           <li class="nav-links"><a [routerLink]="['/metodo']">Método</a></li>
           <li class="nav-links"><a [routerLink]="['/contato']">Contato</a></li>
           <li class="nav-links"><a [routerLink]="['/blog']">Blog</a></li>
-          <li>
-            <div>
-              <a class="btn" button (click)="abrirModalLogin()"> Login </a>
-
-              <a class="btn" button (click)="abrirModalCadastro()">
-                Cadastre-se
-              </a>
-            </div>
-          </li>
         </ul>
       </nav>
+      <div class="user-actions">
+        <div *ngIf="authService.isLoggedIn$ | async">
+          <div class="user-dropdown">
+            <a
+              >Olá, {{ (authService.currentUser$ | async)?.name }}!
+              <i class="fa-solid fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+              <a (click)="logout()">Sair</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-btn" [class.hidden]="authService.isLoggedIn$ | async">
+          <a class="btn" (click)="abrirModalLogin()">Login</a>
+          <a class="btn" (click)="abrirModalCadastro()">Cadastre-se</a>
+        </div>
+      </div>
     </div>
   </div>
 </header>

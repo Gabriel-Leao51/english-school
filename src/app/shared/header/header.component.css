@@ -123,6 +123,46 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-fundo-alternativa)
+  );
+  min-width: 100px;
+  margin-top: 1px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.user-dropdown:hover .dropdown-content {
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content a {
+  color: var(--cor-texto-primaria);
+  padding: 6px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.user-actions {
+  position: relative; /* Para posicionar o dropdown */
+}
+
+.hidden {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex; /* Mostra o botão em telas menores */
@@ -140,9 +180,6 @@
     justify-content: center;
     transition: right 0.3s ease;
     z-index: 9;
-  }
-  .btn {
-    flex-direction: column;
   }
 
   .btn,
@@ -166,14 +203,41 @@
   }
 
   .btn {
-    display: block;
-    flex-direction: column;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: 0;
+    padding: 0.8rem 1em;
   }
 
   .btn.active {
     margin-top: 20px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0; /* Alinha o dropdown à direita */
+  }
+
+  .user-actions {
+    order: -1;
+    align-self: flex-start; /* Alinha o dropdown ao topo do li */
+    margin-right: 10px;
+  }
+  .user-dropdown a {
+    font-size: large;
+  }
+  .user-dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .auth-btn {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hidden {
+    display: none;
   }
 }

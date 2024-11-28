@@ -16,7 +16,6 @@ function generateToken(params = {}) {
 
 // Rota de Cadastro
 router.post("/register", async (req, res) => {
-  console.log("Dados recebidos no cadastro:", req.body);
   const { email } = req.body;
 
   try {
@@ -45,7 +44,6 @@ router.post("/register", async (req, res) => {
 // Rota de Login
 router.post("/login", async (req, res) => {
   console.log("Iniciando o processo de login..."); // Adicione este log
-  console.log("Dados recebidos:", req.body); // Adicione este log
   const { email, password } = req.body;
 
   try {
