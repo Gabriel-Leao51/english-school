@@ -94,6 +94,7 @@
 
 /* Ícone maior */
 .delete-icon i {
+  margin-top: 0.1rem;
   font-size: 1.2em;
 }
 

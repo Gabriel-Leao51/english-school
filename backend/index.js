@@ -28,6 +28,7 @@ app.use("/api/auth", authRoutes); // Use as rotas de autenticação com o prefix
 app.use("/api/cursos", cursoRoutes);
 app.use("/api/professores", professorRoutes);
 app.use("/api/mensagens", contatoRoutes);
+app.use("api/auth", authRoutes);
 app.use("/api/artigos", artigoRoutes);
 
 // Conexão com o MongoDB (substitua com sua string de conexão)

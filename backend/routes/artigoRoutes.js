@@ -1,8 +1,10 @@
 // routes/artigos.js
 
 const express = require("express");
+const mongoose = require("mongoose");
 const router = express.Router();
 const Artigo = require("../models/Artigo");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 // GET /api/artigos
 router.get("/", async (req, res) => {
@@ -68,18 +70,41 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.post("/:id/comentarios", async (req, res) => {
+router.post("/:id/comentarios", authMiddleware, async (req, res) => {
   try {
     const artigo = await Artigo.findById(req.params.id);
     if (!artigo) {
       return res.status(404).json({ error: "Artigo não encontrado" });
     }
-    const novoComentario = req.body;
-    artigo.comments.push(novoComentario);
-    await artigo.save();
-    res.status(201).json(novoComentario);
+
+    const { content, author, userId } = req.body; // Obtenha todas as informações do req.body
+
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ error: "userId inválido" });
+    }
+
+    console.log(req.body);
+
+    const novoComentario = {
+      content,
+      userId: new mongoose.Types.ObjectId(userId), // userId agora vem do req.body
+      author, // author também vem do req.body
+      createdAt: new Date(),
+    };
+    const artigoAtualizado = await Artigo.findByIdAndUpdate(
+      req.params.id,
+      { $push: { comments: novoComentario } }, // Use $push para adicionar o comentário
+      { new: true } // Retorna o artigo atualizado
+    );
+
+    if (!artigoAtualizado) {
+      return res.status(404).json({ error: "Artigo não encontrado." });
+    }
+
+    res.status(201).json(novoComentario); // Ou retorne artigoAtualizado
   } catch (error) {
-    res.status(400).json({ error: "Erro ao adicionar comentário" });
+    console.error("Erro ao adicionar comentário:", error);
+    res.status(500).json({ error: "Erro ao adicionar comentário" });
   }
 });
 

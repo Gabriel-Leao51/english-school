@@ -13,6 +13,7 @@
           <span class="comment-date">{{
             comentario.createdAt | date : "medium"
           }}</span>
+
           <span class="delete-icon" (click)="excluirComentario(comentario)">
             <i class="fas fa-trash-alt"></i>
             <!-- Ícone de lixeira -->
@@ -29,30 +30,11 @@
     </div>
   </div>
 
-  <div class="comment-form">
+  <div class="comment-form" *ngIf="authService.isAuthenticated()">
     <h4 class="comment-form-title">Deixe seu comentário</h4>
     <form [formGroup]="novoComentarioForm" (ngSubmit)="adicionarComentario()">
-      <div class="form-group">
-        <label for="author" class="comment-form-label">Seu Nome:</label>
-        <input
-          type="text"
-          id="author"
-          class="form-control"
-          formControlName="author"
-          required
-        />
-        <div
-          *ngIf="
-            novoComentarioForm.get('author')!.invalid &&
-            (novoComentarioForm.get('author')!.dirty ||
-              novoComentarioForm.get('author')!.touched)
-          "
-          class="error-message"
-        >
-          Nome é obrigatório.
-        </div>
-      </div>
-
+      <p>Comentando como: {{ userName }}</p>
+      <div *ngIf="!userName">Carregando...</div>
       <div class="form-group">
         <label for="content" class="comment-form-label"
           >Escreva seu comentário:</label
@@ -84,5 +66,10 @@
         Adicionar Comentário
       </button>
     </form>
+  </div>
+
+  <div *ngIf="!authService.isAuthenticated()">
+    <!-- Mensagem para usuários não autenticados -->
+    <p>Faça login para comentar.</p>
   </div>
 </div>

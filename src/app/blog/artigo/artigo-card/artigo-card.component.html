@@ -17,8 +17,18 @@
       >Ler mais</a
     >
     <div class="artigo-control">
-      <button (click)="editarArtigo(artigo)">Editar</button>
-      <button (click)="excluirArtigo(artigo)">Excluir</button>
+      <button
+        *ngIf="authService.getRole() === 'admin'"
+        (click)="editarArtigo(artigo)"
+      >
+        Editar
+      </button>
+      <button
+        *ngIf="authService.getRole() === 'admin'"
+        (click)="excluirArtigo(artigo)"
+      >
+        Excluir
+      </button>
     </div>
   </div>
 </div>

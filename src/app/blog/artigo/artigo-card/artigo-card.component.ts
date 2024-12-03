@@ -5,14 +5,14 @@ import { RouterLink } from '@angular/router';
 
 import { Artigo } from '../../../models/artigo.model';
 import { BlogService } from '../../../services/blog.service';
+import { AuthService } from '../../../services/auth.service';
 
-import { ModalComponent } from '../../../shared/modal/modal.component';
 import { PostFormComponent } from '../../post-form/post-form.component';
 
 @Component({
   selector: 'app-artigo-card',
   standalone: true,
-  imports: [ModalComponent, PostFormComponent, NgIf, DatePipe, RouterLink],
+  imports: [NgIf, DatePipe, RouterLink],
   templateUrl: './artigo-card.component.html',
   styleUrl: './artigo-card.component.css',
 })
@@ -24,7 +24,10 @@ export class ArtigoComponent {
   artigos: Artigo[] = [];
   isLoading = true;
 
-  constructor(private blogService: BlogService) {}
+  constructor(
+    private blogService: BlogService,
+    public authService: AuthService
+  ) {}
 
   editarArtigo(artigo: Artigo) {
     // Abra o EditarPostComponent em um modal ou roteie para ele
@@ -32,7 +35,8 @@ export class ArtigoComponent {
     modalRef.instance.artigoId = artigo._id;
     modalRef.instance.isEditing = true;
     modalRef.instance.artigoSalvo.subscribe(() => {
-      this.artigoEditado.emit(); // Recarrega a lista
+      this.artigoEditado.emit();
+      this.modalContainer.clear(); // Adicione esta linha
     });
     modalRef.instance.openModal();
   }
@@ -53,7 +57,7 @@ export class ArtigoComponent {
     }
   }
 
-  // Opcional: Método para truncar o conteúdo do artigo
+  //Método para truncar o conteúdo do artigo
   truncateContent(content: string, maxLength: number = 100): string {
     if (content.length > maxLength) {
       return content.substring(0, maxLength) + '...';

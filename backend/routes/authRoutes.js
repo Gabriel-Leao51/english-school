@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// const authMiddleware = require("./middlewares/authMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 const User = require("../models/User");
 
@@ -33,7 +33,7 @@ router.post("/register", async (req, res) => {
 
     return res.send({
       user,
-      token: generateToken({ id: user.id }),
+      token: generateToken({ id: user._id, role: user.role }),
     });
   } catch (err) {
     console.error("Erro durante o cadastro:", err);
@@ -64,10 +64,9 @@ router.post("/login", async (req, res) => {
     user.password = undefined;
 
     console.log("Login bem-sucedido! Gerando token...");
-
     return res.send({
       user,
-      token: generateToken({ id: user.id }),
+      token: generateToken({ id: user._id, role: user.role }),
     });
   } catch (err) {
     console.error("Erro durante o login:", err);

@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   // 2. Dividir o token em duas partes ("Bearer" e o token em si)
   const parts = authHeader.split(" ");
 
-  if (!parts.length === 2) {
+  if (parts.length !== 2) {
     return res.status(401).send({ error: "Token inválido" });
   }
 
@@ -20,19 +20,20 @@ module.exports = (req, res, next) => {
 
   // 4. Verificar se começa com "Bearer" (padrão JWT)
   if (!/^Bearer$/i.test(scheme)) {
-    return res.status(401).send({ error: "Token mal formatado" });
+    return res.status(401).json({ error: "Token mal formatado" });
   }
 
   // 5. Verificar e decodificar o token JWT
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
+      console.error("Erro de verificação do token:", err);
       return res.status(401).send({ error: "Token inválido" });
     }
 
     // 6. Incluir o ID do usuário na requisição para uso posterior
-    req.userId = decoded.id;
+    req.userId = decoded;
 
     // Continua para o próximo middleware ou rota
-    return next();
+    next();
   });
 };

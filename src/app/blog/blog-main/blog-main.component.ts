@@ -3,10 +3,10 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { BlogService } from '../../services/blog.service';
+import { AuthService } from '../../services/auth.service';
 import { Artigo } from '../../models/artigo.model';
 
 import { ArtigoComponent } from '../artigo/artigo-card/artigo-card.component';
-import { ModalComponent } from '../../shared/modal/modal.component';
 import { PostFormComponent } from '../post-form/post-form.component';
 
 import { finalize, tap } from 'rxjs';
@@ -14,14 +14,7 @@ import { finalize, tap } from 'rxjs';
 @Component({
   selector: 'app-blog-main',
   standalone: true,
-  imports: [
-    ArtigoComponent,
-    ModalComponent,
-    PostFormComponent,
-    NgFor,
-    NgIf,
-    ReactiveFormsModule,
-  ],
+  imports: [ArtigoComponent, NgFor, NgIf, ReactiveFormsModule],
   templateUrl: './blog-main.component.html',
   styleUrl: './blog-main.component.css',
 })
@@ -34,7 +27,10 @@ export class BlogMainComponent implements OnInit {
   filtroBusca = new FormControl('');
   criterioBusca: 'titulo' | 'autor' | 'categoria' = 'titulo'; // Critério de busca ativo
 
-  constructor(private blogService: BlogService) {}
+  constructor(
+    private blogService: BlogService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.reloadArtigos();

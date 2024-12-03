@@ -17,6 +17,11 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false, // não retorna a senha nas consultas por padrão
   },
+  role: {
+    type: String,
+    enum: ["user", "admin"], // Defina os roles possíveis
+    default: "user", // Valor padrão
+  },
   createdAt: {
     type: Date,
     default: Date.now,

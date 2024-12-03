@@ -35,9 +35,21 @@
   <p>Carregando artigos...</p>
 </div>
 
+<button
+  *ngIf="authService.getRole() === 'admin'"
+  (click)="abrirModalNovoPost()"
+>
+  Criar Artigo
+</button>
+
 <div *ngIf="!isLoading && artigosFiltrados().length > 0">
   <div *ngFor="let artigo of artigosFiltrados()">
-    <app-artigo-card [artigo]="artigo" [modalContainer]="modalContainer">
+    <app-artigo-card
+      [artigo]="artigo"
+      [modalContainer]="modalContainer"
+      (artigoEditado)="reloadArtigos()"
+      (artigoExcluido)="reloadArtigos()"
+    >
     </app-artigo-card>
   </div>
 </div>
@@ -45,9 +57,12 @@
 <div *ngIf="!isLoading && artigosFiltrados().length === 0">
   <p>Ainda não há nenhum artigo. Clique aqui para criar o primeiro:</p>
 
-  <button (click)="abrirModalNovoPost()">Criar Artigo</button>
+  <button
+    *ngIf="authService.getRole() === 'admin'"
+    (click)="abrirModalNovoPost()"
+  >
+    Criar Artigo
+  </button>
 </div>
-
-<button (click)="abrirModalNovoPost()">Criar Artigo</button>
 
 <ng-template #modal></ng-template>

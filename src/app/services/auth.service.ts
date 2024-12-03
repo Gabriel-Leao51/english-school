@@ -15,6 +15,7 @@ export class AuthService {
   private apiUrl = 'http://localhost:3001/api/auth';
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   private currentUserSubject = new BehaviorSubject<any | null>(null);
+  private currentUserRole: string | null = null;
   private platformId = inject(PLATFORM_ID);
 
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
@@ -22,6 +23,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
     this.checkLoginStatus();
+  }
+
+  isAuthenticated(): boolean {
+    return this.isLoggedInSubject.value; // Retorna o valor atual do BehaviorSubject
+  }
+
+  getUserName(): string | null {
+    const currentUser = this.currentUserSubject.value; // Obtém o usuário atual
+    return currentUser ? currentUser.name : null; // Retorna o nome se o usuário existir, senão null
+  }
+
+  getUserId(): string | null {
+    const currentUser = this.currentUserSubject.value;
+    return currentUser?._id || null;
   }
 
   cadastrar(userData: any): Observable<LoginResponse> {
@@ -38,6 +53,10 @@ export class AuthService {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, userData).pipe(
       tap((response) => {
         this.handleLoginSuccess(response);
+        if (isPlatformBrowser(this.platformId)) {
+          const role = this.getRole();
+          console.log('role dentro do tap do login', role);
+        }
       })
     );
   }
@@ -46,6 +65,7 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('token');
       localStorage.removeItem('user'); // Remova o user do localStorage
+      localStorage.removeItem('userRole');
     }
     this.isLoggedInSubject.next(false);
     this.currentUserSubject.next(null);
@@ -67,9 +87,18 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
+      localStorage.setItem('userRole', response.user.role);
     }
     console.log('isLoggedInSubject.next(true) chamado');
     this.isLoggedInSubject.next(true);
     this.currentUserSubject.next(response.user);
+    this.currentUserRole = response.user.role;
+  }
+
+  getRole(): string | null {
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('userRole'); // Lê o role do localStorage
+    }
+    return null;
   }
 }
