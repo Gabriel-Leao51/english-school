@@ -1,0 +1,25 @@
+.error-msg {
+  padding: 2rem;
+  background: linear-gradient(
+    to right,
+    var(--cor-fundo),
+    var(--cor-fundo-alternativa)
+  );
+}
+h1,
+p {
+  color: var(--cor-texto-primaria);
+}
+
+a {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--cor-texto-primaria);
+  background-color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--cor-fundo);
+}

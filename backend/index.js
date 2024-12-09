@@ -13,6 +13,8 @@ const artigoRoutes = require("./routes/artigoRoutes");
 const app = express();
 const PORT = process.env.PORT || 3001; // Porta para a API
 
+const uri = process.env.MONGODB_URI;
+
 // Permite receber dados JSON
 app.use(express.json());
 
@@ -32,7 +34,7 @@ app.use("/api/artigos", artigoRoutes);
 
 // Conexão com o MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/KeystoneEnglish")
+  .connect(uri)
   .then(() => console.log("Conectado ao MongoDB!"))
   .catch((err) => console.error("Erro ao conectar ao MongoDB:", err));
 

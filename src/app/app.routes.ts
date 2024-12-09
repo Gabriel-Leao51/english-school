@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CursoDetalhesComponent } from './cursos/curso-detalhes/curso-detalhes.component';
 import { ProfessoresComponent } from './metodo/professores/professores.component';
 import { ArtigoDetalhesComponent } from './blog/artigo/artigo-detalhes/artigo-detalhes.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 export const routes: Routes = [
   {
@@ -52,5 +53,5 @@ export const routes: Routes = [
         (c) => c.CadastroComponent
       ),
   },
-  // { path: '**', component: PaginaNaoEncontradaComponent }, // Rota para página não encontrada (opcional)
+  { path: '**', component: PaginaNaoEncontradaComponent },
 ];
