@@ -30,13 +30,13 @@ export class ArtigoComponent {
   ) {}
 
   editarArtigo(artigo: Artigo) {
-    // Abra o EditarPostComponent em um modal ou roteie para ele
+    // Abre o EditarPostComponent em um modal
     const modalRef = this.modalContainer.createComponent(PostFormComponent);
     modalRef.instance.artigoId = artigo._id;
     modalRef.instance.isEditing = true;
     modalRef.instance.artigoSalvo.subscribe(() => {
       this.artigoEditado.emit();
-      this.modalContainer.clear(); // Adicione esta linha
+      this.modalContainer.clear();
     });
     modalRef.instance.openModal();
   }
@@ -51,7 +51,6 @@ export class ArtigoComponent {
         },
         error: (error) => {
           console.error('Erro ao excluir artigo:', error);
-          // Lidar com o erro, talvez mostrar uma mensagem ao usuário
         },
       });
     }

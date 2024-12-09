@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { CursoService } from '../../services/curso.service'; // Importe o serviço de cursos
-import { Curso } from '../../models/curso.model'; // Importe a interface Curso
 import { CurrencyPipe, NgFor, NgIf, isPlatformBrowser } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Curso } from '../../models/curso.model';
+import { CursoService } from '../../services/curso.service';
+
 import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
 
 @Component({
@@ -36,13 +38,11 @@ export class CursoDetalhesComponent implements OnInit {
           this.curso = curso;
         });
       }
-
-      console.log(window.innerWidth); // Exemplo de acesso ao objeto window
     }
   }
 
   exibirNomeProfessor(): string {
-    // Verifique se o curso e o professor estão carregados antes de acessar o nome
+    // Verifica se o curso e o professor estão carregados antes de acessar o nome
     if (this.curso && this.curso.professor) {
       return this.curso.professor.nome;
     } else {

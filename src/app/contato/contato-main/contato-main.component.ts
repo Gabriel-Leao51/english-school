@@ -1,21 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContatoService } from '../../services/contato.service';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { Curso } from '../../models/curso.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { ContatoService } from '../../services/contato.service';
 import { CursoService } from '../../services/curso.service';
+import { AuthService } from '../../services/auth.service';
+
+import { Curso } from '../../models/curso.model';
+
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contato-main',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf], // Importe o ReactiveFormsModule
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './contato-main.component.html',
   styleUrls: ['./contato-main.component.css'],
 })
 export class ContatoMainComponent implements OnInit, OnDestroy {
-  contatoForm!: FormGroup; // Crie o FormGroup
+  contatoForm!: FormGroup;
   enviandoMensagem: boolean = false; // Controla a exibição do loading
   mensagemEnviada: boolean = false; // Controla a mensagem de sucesso
   erroEnvio: boolean = false; // Controla a mensagem de erro
@@ -24,12 +28,12 @@ export class ContatoMainComponent implements OnInit, OnDestroy {
 
   constructor(
     private contatoService: ContatoService,
-    private fb: FormBuilder, // Injete o FormBuilder
-    private cursoService: CursoService // Injete o CursoService
+    private fb: FormBuilder,
+    private cursoService: CursoService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    // Inicialize o formulário no ngOnInit
     this.criarFormulario();
     this.inscricaoCurso = this.cursoService.cursoSelecionado$.subscribe(
       (curso) => {
@@ -42,10 +46,19 @@ export class ContatoMainComponent implements OnInit, OnDestroy {
         }
       }
     );
+
+    this.authService.currentUser$.subscribe((user) => {
+      if (user) {
+        this.contatoForm.patchValue({
+          nome: user.name,
+          email: user.email,
+        });
+      }
+    });
   }
 
   ngOnDestroy() {
-    // Limpe a inscrição ao destruir o componente
+    // Limpa a inscrição ao destruir o componente
     if (this.inscricaoCurso) {
       this.inscricaoCurso.unsubscribe();
     }
@@ -56,7 +69,7 @@ export class ContatoMainComponent implements OnInit, OnDestroy {
     this.contatoForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telefone: [''], // Opcional, mas podemos adicionar validação personalizada depois
+      telefone: [''], // Opcional
       assunto: ['', Validators.required],
       mensagem: ['', Validators.required],
     });
@@ -64,7 +77,6 @@ export class ContatoMainComponent implements OnInit, OnDestroy {
 
   enviarFormulario() {
     if (this.contatoForm.invalid) {
-      // Exiba mensagens de erro ou impeça o envio
       this.contatoForm.markAllAsTouched(); // Para exibir as mensagens de erro
       return;
     }

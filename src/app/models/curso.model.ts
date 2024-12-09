@@ -4,19 +4,19 @@ export interface Curso {
   _id: string;
   titulo: string;
   imagem: string;
-  descricao: string; // Descrição resumida (já existente)
-  descricaoDetalhada: string; // Nova propriedade: Descrição detalhada
+  descricao: string;
+  descricaoDetalhada: string;
   modalidade: string;
   nivel: string;
   professor: Professor;
-  duracao: string; // (já existente)
-  cargaHoraria: string; // Nova propriedade
+  duracao: string;
+  cargaHoraria: string;
   idioma: string;
   vagas: number;
   horario: string;
   materialDidatico: string;
-  investimento: number; // Nova propriedade
-  conteudoProgramatico: string[]; // Nova propriedade: Array de tópicos
+  investimento: number;
+  conteudoProgramatico: string[];
   createdAt: Date;
   updatedAt: Date;
 }

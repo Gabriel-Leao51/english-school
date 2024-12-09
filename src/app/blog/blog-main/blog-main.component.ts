@@ -84,7 +84,7 @@ export class BlogMainComponent implements OnInit {
         case 'categoria':
           return artigo.category.toLowerCase().includes(termoBusca);
         default:
-          return true; // Ou retornar false, dependendo do comportamento desejado
+          return true;
       }
     });
   }

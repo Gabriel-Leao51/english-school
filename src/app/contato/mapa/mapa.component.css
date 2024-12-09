@@ -10,8 +10,7 @@ p {
 }
 
 .mapa {
-  width: 70%; /* Reduz a largura do mapa para 80% */
+  width: 100%; /* Reduz a largura do mapa para 80% */
   height: 400px;
-  margin: 10px;
-  margin-bottom: 4rem;
+  margin: 0;
 }

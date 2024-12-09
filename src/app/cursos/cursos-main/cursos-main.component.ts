@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoService } from '../../services/curso.service';
-import { Curso } from '../../models/curso.model';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+
+import { Curso } from '../../models/curso.model';
+import { CursoService } from '../../services/curso.service';
+
 import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
 
 @Component({

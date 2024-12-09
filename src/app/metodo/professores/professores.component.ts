@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
+
 import { ProfessorService } from '../../services/professor.service';
 import { Professor } from '../../models/professor.model';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-professores',

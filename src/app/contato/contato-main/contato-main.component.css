@@ -1,4 +1,3 @@
-/* Container principal da seção de contato */
 .contato-container {
   margin-top: 0.3rem;
   padding: 5rem 0 2rem 0;
@@ -200,7 +199,7 @@
   }
 
   .contato-formulario {
-    width: auto;
+    width: 70%;
     margin: 1.5rem auto; /* Margem automática para centralizar */
     padding: 1rem;
     align-items: center; /* Centraliza os elementos do formulário */

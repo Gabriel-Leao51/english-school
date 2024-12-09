@@ -1,5 +1,5 @@
 export interface Professor {
-  _id: string; // Certifique-se de que o ID seja uma string
+  _id: string;
   nome: string;
   biografia: string;
   formacao: string;

@@ -1,6 +1,3 @@
-/* professores.component.css */
-
-/* Estilos para os cards dos professores */
 #professores-container {
   justify-content: space-between; /* Distribui os cards com espaçamento entre eles */
   padding: 2rem 5rem;
@@ -8,7 +5,7 @@
 
 .professores-section {
   padding: 2rem 0;
-  background-image: url("/assets/imagens/professores-bg.jpg"); /* Substitua pela URL da sua imagem */
+  background-image: url("/assets/imagens/professores-bg.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -32,7 +29,7 @@
   border-radius: 8px;
   position: relative;
   z-index: 1;
-  display: flex; /* Adicione o Flexbox aqui! */
+  display: flex;
   justify-content: flex-start;
   align-items: center; /* Alinha verticalmente ao centro */
 }

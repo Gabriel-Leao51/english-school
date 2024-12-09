@@ -1,61 +1,40 @@
-<div class="search-container">
-  <input
-    type="text"
-    placeholder="Buscar artigos..."
-    [formControl]="filtroBusca"
-    class="search-input"
-  />
+<section class="blog-main">
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Buscar artigos..."
+      [formControl]="filtroBusca"
+      class="search-input"
+    />
 
-  <div class="filter-buttons">
-    <button
-      (click)="alterarCriterio('titulo')"
-      [class.active]="criterioBusca === 'titulo'"
-      class="filter-button"
-    >
-      Título
-    </button>
-    <button
-      (click)="alterarCriterio('autor')"
-      [class.active]="criterioBusca === 'autor'"
-      class="filter-button"
-    >
-      Autor
-    </button>
-    <button
-      (click)="alterarCriterio('categoria')"
-      [class.active]="criterioBusca === 'categoria'"
-      class="filter-button"
-    >
-      Categoria
-    </button>
+    <div class="filter-buttons">
+      <button
+        (click)="alterarCriterio('titulo')"
+        [class.active]="criterioBusca === 'titulo'"
+        class="filter-button"
+      >
+        Título
+      </button>
+      <button
+        (click)="alterarCriterio('autor')"
+        [class.active]="criterioBusca === 'autor'"
+        class="filter-button"
+      >
+        Autor
+      </button>
+      <button
+        (click)="alterarCriterio('categoria')"
+        [class.active]="criterioBusca === 'categoria'"
+        class="filter-button"
+      >
+        Categoria
+      </button>
+    </div>
   </div>
-</div>
 
-<div *ngIf="isLoading">
-  <p>Carregando artigos...</p>
-</div>
-
-<button
-  *ngIf="authService.getRole() === 'admin'"
-  (click)="abrirModalNovoPost()"
->
-  Criar Artigo
-</button>
-
-<div *ngIf="!isLoading && artigosFiltrados().length > 0">
-  <div *ngFor="let artigo of artigosFiltrados()">
-    <app-artigo-card
-      [artigo]="artigo"
-      [modalContainer]="modalContainer"
-      (artigoEditado)="reloadArtigos()"
-      (artigoExcluido)="reloadArtigos()"
-    >
-    </app-artigo-card>
+  <div *ngIf="isLoading">
+    <p>Carregando artigos...</p>
   </div>
-</div>
-
-<div *ngIf="!isLoading && artigosFiltrados().length === 0">
-  <p>Ainda não há nenhum artigo. Clique aqui para criar o primeiro:</p>
 
   <button
     *ngIf="authService.getRole() === 'admin'"
@@ -63,6 +42,29 @@
   >
     Criar Artigo
   </button>
-</div>
+
+  <div *ngIf="!isLoading && artigosFiltrados().length > 0">
+    <div *ngFor="let artigo of artigosFiltrados()">
+      <app-artigo-card
+        [artigo]="artigo"
+        [modalContainer]="modalContainer"
+        (artigoEditado)="reloadArtigos()"
+        (artigoExcluido)="reloadArtigos()"
+      >
+      </app-artigo-card>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && artigosFiltrados().length === 0">
+    <p>Ainda não há nenhum artigo. Clique aqui para criar o primeiro:</p>
+
+    <button
+      *ngIf="authService.getRole() === 'admin'"
+      (click)="abrirModalNovoPost()"
+    >
+      Criar Artigo
+    </button>
+  </div>
+</section>
 
 <ng-template #modal></ng-template>

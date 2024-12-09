@@ -1,14 +1,15 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgIf } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
 import { BlogService } from '../../services/blog.service';
 import { Artigo } from '../../models/artigo.model';
 import { ModalComponent } from '../../shared/modal/modal.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-post-form',

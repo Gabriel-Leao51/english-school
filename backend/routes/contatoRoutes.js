@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-require("dotenv").config(); // Carregue as variáveis do .env
+require("dotenv").config(); // Carrega as variáveis do .env
 
-// Acesse as variáveis de ambiente
+// Acessa as variáveis de ambiente
+const gmailUser = process.env.GMAIL_USER;
 const gmailPassword = process.env.GMAIL_PASSWORD;
 
-// Configurações do Nodemailer (ajuste com suas credenciais)
+// Configurações do Nodemailer
 const transporter = nodemailer.createTransport({
   service: "gmail", // Ex: 'gmail', 'outlook', etc.
   auth: {
-    user: "keystonengschool@gmail.com",
+    user: gmailUser,
     pass: gmailPassword,
   },
 });
@@ -18,11 +19,10 @@ const transporter = nodemailer.createTransport({
 router.post("/", async (req, res) => {
   try {
     const { nome, email, telefone, assunto, mensagem } = req.body;
-
-    // Crie o conteúdo do email utilizando os dados do formulário
+    // Cria o conteúdo do email utilizando os dados do formulário
     const mailOptions = {
       from: email, // Email do usuário como remetente
-      to: "keystonengschool@gmail.com", // Seu email como destinatário
+      to: gmailUser, // Seu email como destinatário
       subject: assunto, // Assunto do email enviado pelo usuário
       html: `
         <h2>Nova mensagem de contato de: ${nome}</h2>
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
       `,
     };
 
-    // Envie o email
+    // Envia o email
     await transporter.sendMail(mailOptions);
 
     console.log("Email enviado com sucesso!");

@@ -3,51 +3,60 @@
   padding: 3rem 2rem;
 }
 
-.sobre-escola h2 {
+.sobre-escola-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Espaçamento entre os itens */
+}
+
+.sobre-escola-item {
+  width: 100%; /* garante que ocupe toda a largura */
+}
+
+.sobre-escola-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Inverte a ordem nos itens pares */
+.sobre-escola-content--reverse {
+  flex-direction: row-reverse;
+}
+
+.sobre-escola-texto {
+  text-align: left;
+}
+
+.sobre-escola-titulo {
   color: var(--cor-texto-primaria);
   font-weight: 700;
   background-color: var(--cor-destaque-2);
   padding: 10px 15px;
   border-radius: 5px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.sobre-escola p {
+.sobre-escola-descricao {
   color: var(--cor-texto-primaria);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-escola-imagem {
+  width: 100%;
 }
 
 .sobre-escola img {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1.5rem;
-  max-width: 100%; /* garante que a imagem não ultrapasse o container */
-  height: auto;
-  object-fit: cover; /* ou contain, dependendo da sua necessidade */
-}
-
-.sobre-escola .row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
-
-.sobre-escola .row:nth-child(even) {
-  flex-direction: row-reverse;
+  max-width: 100%;
+  width: 100%;
+  display: block; /* Impede espaço extra abaixo da imagem */
 }
 
 @media (max-width: 768px) {
-  .sobre-escola .row {
-    gap: 1.5rem; /* Ajusta o espaçamento entre as divs */
-  }
-
-  .sobre-escola p {
-    text-align: left;
-  }
-
-  .sobre-escola .col-md-6 {
-    width: 100%;
+  .sobre-escola-content {
+    flex-direction: column; /* Texto sempre em cima em telas menores */
   }
 }

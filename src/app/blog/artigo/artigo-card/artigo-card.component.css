@@ -75,7 +75,7 @@
 
   .card img {
     padding: 1rem;
-    object-fit: contain; /* Opcional: para garantir que toda a imagem seja exibida */
+    object-fit: contain; /* Para garantir que toda a imagem seja exibida */
   }
 
   .artigo-control {

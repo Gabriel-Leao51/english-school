@@ -1,17 +1,19 @@
-<div class="container">
-  <div class="row justify-content-center">
+<div class="curso-grid-container">
+  <div class="curso-grid">
     <div class="curso-card" *ngFor="let curso of cursos">
-      <div class="card rounded-0">
+      <div class="curso-card-content">
         <img
           src="{{ curso.imagem }}"
           appCarregarImagem
-          class="card-img-top img-fluid"
           alt="{{ curso.titulo }}"
+          class="curso-imagem"
         />
-        <div class="card-img-overlay p-3">
-          <div class="bg-primary text-start rounded w-100">
-            <h5 class="card-title text-white">{{ curso.titulo }}</h5>
-            <p class="card-text text-white mb-0">{{ curso.descricao }}</p>
+        <div class="curso-overlay">
+          <div class="curso-titulo">
+            {{ curso.titulo }}
+          </div>
+          <div class="curso-descricao">
+            {{ curso.descricao }}
           </div>
         </div>
       </div>

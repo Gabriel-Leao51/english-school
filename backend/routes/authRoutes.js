@@ -43,7 +43,7 @@ router.post("/register", async (req, res) => {
 
 // Rota de Login
 router.post("/login", async (req, res) => {
-  console.log("Iniciando o processo de login..."); // Adicione este log
+  console.log("Iniciando o processo de login...");
   const { email, password } = req.body;
 
   try {

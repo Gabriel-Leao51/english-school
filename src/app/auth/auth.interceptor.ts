@@ -1,4 +1,3 @@
-// auth.interceptor.ts
 import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,
@@ -18,10 +17,10 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     if (this.authService.isAuthenticated()) {
-      // Verifique se o usuário está logado
-      const token = localStorage.getItem('token'); // Recupere o token
+      // Verifica se o usuário está logado
+      const token = localStorage.getItem('token'); // Recupera o token
       if (token) {
-        // Verifique se o token existe
+        // Verifica se o token existe
         const authReq = req.clone({
           setHeaders: {
             Authorization: `Bearer ${token}`,

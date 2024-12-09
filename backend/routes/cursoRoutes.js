@@ -1,9 +1,7 @@
-// routes/cursoRoutes.js
-
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const Curso = require("../models/Curso"); // Importe o modelo do curso
+const Curso = require("../models/Curso");
 
 router.get("/", async (req, res) => {
   try {

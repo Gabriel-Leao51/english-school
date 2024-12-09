@@ -9,7 +9,7 @@
     var(--cor-fundo-alternativa)
   );
   border-radius: 16px 16px 0 0;
-  padding: 30px 0; /* Ajuste o padding conforme necessário */
+  padding: 30px 0;
 }
 
 .banner-content {
@@ -18,7 +18,7 @@
   justify-content: space-between; /* Distribui o espaço entre texto e imagem */
   max-width: 1200px;
   margin: 0 auto; /* Centraliza o container */
-  padding: 0 20px; /* Adicione um espaçamento interno */
+  padding: 0 20px;
 }
 
 .text-container {

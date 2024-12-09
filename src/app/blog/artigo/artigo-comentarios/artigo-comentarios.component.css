@@ -1,9 +1,7 @@
-/* artigo-comentarios.component.css */
-
 .comments-title {
   margin-bottom: 20px;
   font-size: 1.8em;
-  color: var(--cor-texto-primaria); /* Use sua variável de cor */
+  color: var(--cor-texto-primaria);
 }
 
 .comment-list {
@@ -11,7 +9,7 @@
 }
 
 .comment {
-  border: 1px solid var(--cor-fundo-alternativa); /* Use sua variável de cor */
+  border: 1px solid var(--cor-fundo-alternativa);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -52,7 +50,7 @@
 }
 
 .comment-form {
-  border-top: 1px solid var(--cor-fundo-alternativa); /* Use sua variável de cor */
+  border-top: 1px solid var(--cor-fundo-alternativa);
   padding-top: 20px;
 }
 
@@ -83,7 +81,7 @@
 .delete-icon {
   margin-left: 0.3rem;
   cursor: pointer;
-  color: var(--cor-primaria); /* Cor do ícone (vermelho por exemplo) */
+  color: var(--cor-primaria); /* Cor do ícone */
   float: right; /* Posiciona o ícone à direita */
   margin-top: -3px; /* ajuste conforme necessário */
 }

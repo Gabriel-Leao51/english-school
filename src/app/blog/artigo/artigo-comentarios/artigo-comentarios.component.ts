@@ -9,7 +9,7 @@ import {
 import { BlogService } from '../../../services/blog.service';
 import { AuthService } from '../../../services/auth.service';
 
-import { Artigo, Comment } from '../../../models/artigo.model';
+import { Comment } from '../../../models/artigo.model';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 
 @Component({
@@ -33,7 +33,7 @@ export class ArtigoComentariosComponent implements OnInit {
   ) {
     this.authService.currentUser$.subscribe((user) => {
       // Inscreve-se no currentUser$
-      this.userName = user ? user.name : null; // Atualiza o nome do usuário, ajustando 'name' ao nome do atributo que você usa para o nome
+      this.userName = user ? user.name : null; // Atualiza o nome do usuário
     });
   }
 
@@ -44,7 +44,7 @@ export class ArtigoComentariosComponent implements OnInit {
 
   createForm() {
     this.novoComentarioForm = this.fb.group({
-      content: ['', Validators.required], // Apenas o campo content
+      content: ['', Validators.required],
     });
   }
 
@@ -98,7 +98,7 @@ export class ArtigoComentariosComponent implements OnInit {
 
     if (!podeExcluir) {
       // Exibir uma mensagem informando que o usuário não tem permissão para excluir
-      alert('Você não tem permissão para excluir este comentário.'); // Ou um feedback mais amigável
+      alert('Você não tem permissão para excluir este comentário.');
       return;
     }
 

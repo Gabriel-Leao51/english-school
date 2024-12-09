@@ -17,7 +17,7 @@ interface Slide {
 })
 export class MetodoSlideComponent implements AfterViewInit {
   slides: Slide[] = [
-    // Defina seus slides aqui
+    // Defina os slides aqui
     {
       titulo: 'Aprenda Inglês de Forma Natural e Imersiva',
       descricao:

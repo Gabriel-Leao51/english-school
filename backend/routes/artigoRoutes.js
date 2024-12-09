@@ -1,5 +1,3 @@
-// routes/artigos.js
-
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
@@ -77,7 +75,7 @@ router.post("/:id/comentarios", authMiddleware, async (req, res) => {
       return res.status(404).json({ error: "Artigo não encontrado" });
     }
 
-    const { content, author, userId } = req.body; // Obtenha todas as informações do req.body
+    const { content, author, userId } = req.body; // Obtém todas as informações do req.body
 
     if (!mongoose.Types.ObjectId.isValid(userId)) {
       return res.status(400).json({ error: "userId inválido" });
@@ -87,13 +85,13 @@ router.post("/:id/comentarios", authMiddleware, async (req, res) => {
 
     const novoComentario = {
       content,
-      userId: new mongoose.Types.ObjectId(userId), // userId agora vem do req.body
+      userId: mongoose.Types.ObjectId(userId), // userId agora vem do req.body
       author, // author também vem do req.body
       createdAt: new Date(),
     };
     const artigoAtualizado = await Artigo.findByIdAndUpdate(
       req.params.id,
-      { $push: { comments: novoComentario } }, // Use $push para adicionar o comentário
+      { $push: { comments: novoComentario } }, // Usa $push para adicionar o comentário
       { new: true } // Retorna o artigo atualizado
     );
 

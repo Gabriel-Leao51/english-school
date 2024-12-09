@@ -3,7 +3,7 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
-  selector: 'img[appCarregarImagem]', // Aplicar a diretiva a todas as tags <img> com o atributo appCarregarImagem
+  selector: 'img[appCarregarImagem]', // Aplica a diretiva a todas as tags <img> com o atributo appCarregarImagem
   standalone: true,
 })
 export class CarregarImagemDirective implements OnInit {
@@ -28,7 +28,6 @@ export class CarregarImagemDirective implements OnInit {
         img.src = this.src;
       }
     } else {
-      // Lógica para o servidor (opcional)
       // Você pode definir um src padrão aqui, se necessário
       this.showImage = true; //ou defina um src padrão aqui, se necessário
     }

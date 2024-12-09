@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service'; // Importe o serviço
+import { AuthService } from '../../services/auth.service';
 
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +39,7 @@ export class CadastroComponent {
   }
 
   openModal() {
-    this.showModal = true; // Apenas altere o estado da modal
+    this.showModal = true; // Apenas altera o estado da modal
   }
 
   closeModal(modalId: string) {

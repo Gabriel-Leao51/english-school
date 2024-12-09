@@ -12,11 +12,7 @@
         <span class="line"></span>
         <span class="line"></span>
       </button>
-      <nav
-        class="nav"
-        [class.active]="menuOpen"
-        (click)="closeMenuOnLinkClick($event)"
-      >
+      <nav class="nav" [class.active]="menuOpen">
         <ul>
           <li class="nav-links"><a [routerLink]="['/home']">Home</a></li>
           <li class="nav-links"><a [routerLink]="['/cursos']">Cursos</a></li>

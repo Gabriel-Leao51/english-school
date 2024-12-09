@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Professor = require("../models/Professor"); // Importe o modelo
+const Professor = require("../models/Professor");
 
 // Listar todos os professores
 router.get("/", async (req, res) => {

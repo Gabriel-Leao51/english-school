@@ -1,77 +1,80 @@
-.container {
-  margin-top: 0.3rem;
+.curso-grid-container {
   width: 100%;
   background: linear-gradient(
-    to bottom left,
-    var(--cor-fundo-alternativa),
-    var(--cor-primaria)
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-fundo-alternativa)
   );
+  padding: 40px 20px;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  box-sizing: border-box;
 }
 
-.curso-card {
-  width: 100%; /* Ocupa toda a largura disponível */
-  max-width: 250px; /* Largura máxima */
-  margin: 25px auto; /* Margem automática para centralizar */
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
-  padding: 0 15px; /* Adiciona padding horizontal para espaçamento */
-}
-
-.card {
-  border: 1px solid #ddd;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.card-img-top {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-img-overlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-}
-
-.card-title {
-  margin: 0;
-}
-
-.card-text {
-  margin-bottom: 0;
-}
-
-.bg-primary {
-  position: relative;
-  width: auto;
-  padding: 15px;
-  text-align: left;
-  background-color: var(--cor-destaque-1);
-  color: var(--cor-texto-primaria);
-}
-
-.bg-primary h5 {
-  font-size: 1rem;
-}
-
-.row {
+.curso-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
 }
 
-/* Media Queries para responsividade */
+.curso-card {
+  max-width: 250px; /* Largura máxima do card */
+  width: 100%; /* Ocupa toda a largura disponível em telas menores */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.2s ease; /* Adiciona uma transição suave */
+}
+
+.curso-card:hover {
+  transform: scale(1.05); /* Efeito de escala ao passar o mouse */
+}
+
+.curso-card-content {
+  position: relative; /* Para posicionar o overlay */
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+.curso-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--cor-destaque-1);
+  color: var(--cor-texto-primaria);
+  text-align: left; /* Alinha o texto à esquerda */
+  opacity: 0.9; /* Um pouco de transparência */
+  transition: opacity 0.3s;
+  height: 20%;
+  width: 90%;
+}
+.curso-card:hover .curso-overlay {
+  opacity: 1;
+}
+
+.curso-titulo {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold; /* Título em negrito */
+}
+
+.curso-descricao {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
-  .curso-card {
-    width: calc(25% - 10px); /* Dois cards por linha em telas médias */
+  .curso-grid {
+    justify-content: space-around; /* Distribui os cards uniformemente */
   }
 }

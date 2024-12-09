@@ -9,7 +9,7 @@
     var(--cor-fundo-alternativa)
   );
   border-radius: 16px 16px 0 0;
-  padding: 30px 0; /* Espaçamento interno do banner */
+  padding: 30px 0;
 }
 
 .metodo-slide-content {

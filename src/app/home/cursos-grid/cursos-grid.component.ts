@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
 

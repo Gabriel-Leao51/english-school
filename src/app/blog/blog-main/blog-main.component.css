@@ -1,8 +1,6 @@
-/* blog-main.component.css */
-
 .search-container {
-  top: 20px; /* Ajuste conforme necessário */
-  right: 20px; /* Ajuste conforme necessário */
+  top: 20px;
+  right: 20px;
   margin-top: 0.3rem;
   margin-bottom: 1rem;
   display: flex;
@@ -19,7 +17,7 @@
 
 .filter-button {
   margin-left: 5px; /* Espaçamento entre os botões */
-  padding: 5px 10px; /* Ajuste o padding conforme necessário */
+  padding: 5px 10px;
   border: 1px solid var(--cor-texto-secundaria); /* Borda padrão */
   background-color: transparent; /* Fundo transparente */
   color: var(--cor-texto-secundaria); /* Cor do texto padrão */

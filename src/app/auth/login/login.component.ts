@@ -38,7 +38,7 @@ export class LoginComponent {
   }
 
   openModal() {
-    this.showModal = true; // Apenas altere o estado da modal
+    this.showModal = true; // Apenas altera o estado da modal
   }
 
   closeModal(modalId: string) {

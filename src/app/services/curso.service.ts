@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Curso } from '../models/curso.model'; // Importe a interface Curso
+import { Curso } from '../models/curso.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CursoService {
-  private apiUrl = 'http://localhost:3001/api/cursos'; // Substitua pela URL da sua API
+  private apiUrl = 'http://localhost:3001/api/cursos';
   private cursoSelecionadoSubject = new BehaviorSubject<Curso | null>(null);
   cursoSelecionado$ = this.cursoSelecionadoSubject.asObservable();
 

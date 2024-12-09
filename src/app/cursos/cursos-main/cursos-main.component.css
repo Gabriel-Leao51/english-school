@@ -1,6 +1,6 @@
 .cursos-section {
   position: relative;
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left;
   overflow: hidden;
   margin-top: 0.3rem;
   background: linear-gradient(
@@ -9,17 +9,16 @@
     var(--cor-fundo-alternativa)
   );
   border-radius: 16px 16px 0 0;
-  padding: 30px 0; /* Adicione um espaçamento interno */
+  padding: 30px 0;
 }
 
 .cursos-content {
-  /* Container para o conteúdo da página */
   display: flex;
   justify-content: space-between; /* Distribui o espaço entre a imagem e o texto */
   align-items: center;
   max-width: 1200px;
   margin: 0 auto; /* Centraliza o container */
-  padding: 0 20px; /* Adicione um espaçamento interno */
+  padding: 0 20px;
 }
 
 .image-container {
@@ -33,7 +32,6 @@
 }
 
 .text-container {
-  /* Container para o texto */
   width: 45%;
   color: white;
 }
@@ -54,7 +52,7 @@ p {
 /* Estilos para os cards das categorias */
 #h2-cat {
   position: absolute; /* Posiciona em relação ao elemento pai posicionado */
-  top: 0; /* Ajuste a distância do topo */
+  top: 0; /* Ajusta a distância do topo */
   left: 50%;
   transform: translateX(-50%); /* Centraliza horizontalmente */
   z-index: 2; /* Garante que fique acima da imagem de fundo */
