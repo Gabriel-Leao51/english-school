@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-require("dotenv").config(); // Carrega as variáveis do .env
 
 // Acessa as variáveis de ambiente
 const gmailUser = process.env.GMAIL_USER;

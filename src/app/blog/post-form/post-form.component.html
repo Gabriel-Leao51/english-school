@@ -95,14 +95,19 @@
               </div>
 
               <div class="form-group">
-                <label for="imageUrl">URL da Imagem (opcional):</label>
+                <label for="imageUrl">Imagem:</label>
                 <input
                   type="text"
                   id="imageUrl"
                   class="form-control"
                   formControlName="imageUrl"
+                  readonly
                 />
               </div>
+
+              <button type="button" (click)="openWidget()">
+                Upload Imagem
+              </button>
 
               <button
                 type="submit"

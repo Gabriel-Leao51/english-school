@@ -1,6 +1,5 @@
 .card {
   display: flex;
-  justify-content: space-between;
   background: linear-gradient(
     to bottom,
     var(--cor-primaria-transparente),
@@ -25,6 +24,7 @@
 .card img {
   padding-top: 1.5rem;
   padding-left: 1rem;
+  margin-bottom: 2rem;
   height: 180px;
   object-fit: cover; /* Garante que a imagem cubra toda a área, mesmo com diferentes proporções */
 }

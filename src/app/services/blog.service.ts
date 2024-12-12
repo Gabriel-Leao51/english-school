@@ -55,4 +55,13 @@ export class BlogService {
       `${this.apiUrl}/${artigoId}/comentarios/${comentarioId}`
     );
   }
+
+  getCloudinarySignature(): Observable<{
+    timestamp: number;
+    signature: string;
+  }> {
+    return this.http.get<{ timestamp: number; signature: string }>(
+      `${this.apiUrl}/cloudinary/signature`
+    );
+  }
 }

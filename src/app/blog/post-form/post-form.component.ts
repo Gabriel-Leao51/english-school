@@ -1,15 +1,20 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 import { BlogService } from '../../services/blog.service';
 import { Artigo } from '../../models/artigo.model';
 import { ModalComponent } from '../../shared/modal/modal.component';
+
+import { Cloudinary } from '@cloudinary/url-gen';
+import { environment } from '../../../environments/environment';
+
+declare const cloudinary: any;
 
 @Component({
   selector: 'app-post-form',
@@ -19,17 +24,20 @@ import { ModalComponent } from '../../shared/modal/modal.component';
   styleUrl: './post-form.component.css',
 })
 export class PostFormComponent implements OnInit {
-  @Input() isEditing: boolean = false; // Indica se está em modo edição
-  @Input() artigoId: string | null = null; // ID do artigo a ser editado
+  @Input() isEditing: boolean = false;
+  @Input() artigoId: string | null = null;
   @Output() artigoSalvo = new EventEmitter<void>();
+
   postForm!: FormGroup;
   isOpen = false;
   isLoading = false;
+  myWidget: any;
 
   constructor(private fb: FormBuilder, private blogService: BlogService) {}
 
   ngOnInit(): void {
     this.createForm();
+
     if (this.isEditing && this.artigoId) {
       this.carregarDadosArtigo();
     }
@@ -77,7 +85,7 @@ export class PostFormComponent implements OnInit {
     if (this.isEditing && this.artigoId) {
       this.blogService.updateArtigo(this.artigoId, artigo).subscribe({
         next: () => {
-          this.artigoSalvo.emit(); // Emite o evento de artigo salvo
+          this.artigoSalvo.emit();
           this.closeModal();
         },
         error: (error) => {
@@ -87,7 +95,7 @@ export class PostFormComponent implements OnInit {
     } else {
       this.blogService.createArtigo(artigo).subscribe({
         next: () => {
-          this.artigoSalvo.emit(); // Emite o evento de artigo salvo
+          this.artigoSalvo.emit();
           this.closeModal();
         },
         error: (error) => {
@@ -99,6 +107,30 @@ export class PostFormComponent implements OnInit {
 
   closeModal(): void {
     this.isOpen = false;
-    this.postForm.reset(); // Limpa o formulário depois de fechar
+    this.postForm.reset();
+  }
+
+  openWidget(): void {
+    const uploadOptions = {
+      cloudName: 'dxokgmnnc',
+      uploadPreset: 'keystone_blog',
+      folder: 'images',
+      // api_key: environment.cloudinaryApiKey, // Não é necessária para uploads unsigned
+    };
+
+    this.myWidget = cloudinary.createUploadWidget(
+      uploadOptions,
+      (error: any, result: any) => {
+        if (error) {
+          console.error('Erro no upload:', error);
+        } else if (result && result.event === 'success') {
+          console.log('Upload bem-sucedido:', result.info);
+          this.postForm.patchValue({ imageUrl: result.info.secure_url });
+        } else if (result) {
+          console.log('Outro evento:', result.event);
+        }
+      }
+    );
+    this.myWidget.open();
   }
 }
