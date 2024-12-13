@@ -22,14 +22,16 @@ export class MetodoSlideComponent implements AfterViewInit {
       titulo: 'Aprenda Inglês de Forma Natural e Imersiva',
       descricao:
         'Nossos cursos proporcionam uma experiência imersiva em inglês, com foco na comunicação e na fluência desde o primeiro dia.',
-      imagem: 'assets/imagens/slide1.jpg',
+      imagem:
+        'https://res.cloudinary.com/dxokgmnnc/image/upload/v1734039313/slide1_bmjftj.jpg',
       active: true,
     },
     {
       titulo: 'Professores Apaixonados por Ensinar Inglês',
       descricao:
         'Nossa equipe de professores é altamente qualificada, experiente e dedicada a ajudar você a alcançar seus objetivos.',
-      imagem: 'assets/imagens/slide2.jpg',
+      imagem:
+        'https://res.cloudinary.com/dxokgmnnc/image/upload/v1734039316/slide2_mxb3yo.jpg',
       active: false,
     },
 
@@ -37,7 +39,8 @@ export class MetodoSlideComponent implements AfterViewInit {
       titulo: 'Método Personalizado para o Seu Sucesso',
       descricao:
         'Oferecemos um método de ensino personalizado, que se adapta às suas necessidades e ao seu ritmo de aprendizado.',
-      imagem: 'assets/imagens/slide3.jpg',
+      imagem:
+        'https://res.cloudinary.com/dxokgmnnc/image/upload/v1734039315/slide3_q7robb.jpg',
       active: false,
     },
   ];

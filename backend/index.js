@@ -21,9 +21,7 @@ app.use(express.json());
 // Configurar o middleware cors ANTES das outras rotas
 app.use(
   cors({
-    origin: "http://localhost:4200", // Permite requisições de http://localhost:4200
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Métodos permitidos
-    allowedHeaders: ["Content-Type", "Authorization"], // Headers permitidos
+    origin: "http://localhost:4200",
   })
 );
 

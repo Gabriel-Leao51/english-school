@@ -6,7 +6,7 @@
     var(--cor-fundo-alternativa),
     var(--cor-fundo)
   );
-  background-image: url("/assets/imagens/contato-bg.jpg");
+  background-image: url("https://res.cloudinary.com/dxokgmnnc/image/upload/v1734039309/contato-bg_vcishb.jpg");
   background-size: auto;
   background-repeat: repeat-x;
   border-radius: 8px;

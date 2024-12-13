@@ -1,5 +1,5 @@
 .artigo-detalhes {
-  background-image: url("/assets/imagens/blog.jpg");
+  background-image: url("https://res.cloudinary.com/dxokgmnnc/image/upload/v1734039309/blog_qp6eql.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color: var(--cor-texto-primaria);
