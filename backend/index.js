@@ -21,7 +21,9 @@ app.use(express.json());
 // Configurar o middleware cors ANTES das outras rotas
 app.use(
   cors({
-    origin: "https://keystone-english-frontend.onrender.com",
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+    allowedHeaders: ["Content-Type", "Authorization"], // Cabeçalhos permitidos
   })
 );
 
