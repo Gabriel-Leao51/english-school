@@ -12,5 +12,4 @@ const professorSchema = new Schema(
   { collection: "professores" }
 );
 
-console.log("Modelo Professor carregado!");
 module.exports = mongoose.model("Professor", professorSchema);
