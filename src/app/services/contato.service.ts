@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 // Interface para tipagem dos dados do formulário
 interface ContatoFormData {
@@ -15,7 +16,7 @@ interface ContatoFormData {
   providedIn: 'root',
 })
 export class ContatoService {
-  private apiUrl = 'http://localhost:3001/api/mensagens'; // URL da API
+  private apiUrl = `${environment.apiUrl}/api/mensagens`; // URL da API
 
   constructor(private http: HttpClient) {}
 

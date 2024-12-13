@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Curso } from '../models/curso.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CursoService {
-  private apiUrl = 'http://localhost:3001/api/cursos';
+  private apiUrl = `${environment.apiUrl}/api/cursos`;
   private cursoSelecionadoSubject = new BehaviorSubject<Curso | null>(null);
   cursoSelecionado$ = this.cursoSelecionadoSubject.asObservable();
 
