@@ -1,0 +1,12 @@
+{
+  "routes": [
+    "/blog",
+    "/cadastro",
+    "/contato",
+    "/cursos",
+    "/home",
+    "/login",
+    "/metodo",
+    "/professores"
+  ]
+}
