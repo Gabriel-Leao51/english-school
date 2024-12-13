@@ -1,7 +1,7 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 
 import { routes } from './app.routes';
-import { RouterModule, provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -14,10 +14,10 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(),
     importProvidersFrom(
-      RouterModule.forRoot(routes),
+      // RouterModule.forRoot(routes),
       HttpClientModule,
       BrowserModule,
       BrowserAnimationsModule,

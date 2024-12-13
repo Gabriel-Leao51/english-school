@@ -7,7 +7,7 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home', // Redireciona para /home quando a rota for vazia ('/')
+    redirectTo: '/home', // Redireciona para /home quando a rota for vazia ('/')
     pathMatch: 'full',
   },
   {
