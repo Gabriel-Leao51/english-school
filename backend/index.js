@@ -21,7 +21,7 @@ app.use(express.json());
 // Configurar o middleware cors ANTES das outras rotas
 app.use(
   cors({
-    origin: "http://localhost:4200",
+    origin: "https://keystone-english-frontend.onrender.com",
   })
 );
 
