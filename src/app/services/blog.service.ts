@@ -14,7 +14,6 @@ export class BlogService {
 
   // Obter todos os artigos
   getArtigos(): Observable<Artigo[]> {
-    console.log(this.apiUrl);
     return this.http.get<Artigo[]>(this.apiUrl);
   }
 
