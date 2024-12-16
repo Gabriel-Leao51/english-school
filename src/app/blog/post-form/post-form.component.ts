@@ -12,7 +12,7 @@ import { Artigo } from '../../models/artigo.model';
 import { ModalComponent } from '../../shared/modal/modal.component';
 
 import { Cloudinary } from '@cloudinary/url-gen';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 
 declare const cloudinary: any;
 
