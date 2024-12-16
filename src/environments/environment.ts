@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'URL_API',
-  googleMapsApiKey: 'MINHA_CHAVE_API',
-  cloudinaryApiKey: 'MINHA_CHAVE_API',
+  apiUrl: process.env['API_URL'],
+  googleMapsApiKey: process.env['GOOGLE_MAPS_API_KEY'],
+  cloudinaryApiKey: process.env['CLOUDINARY_API_KEY'],
 };
