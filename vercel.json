@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "dist/english-school/server/main.server.mjs",
-      "use": "@vercel/node@20.13.0"
+      "use": "@vercel/node"
     }
   ],
   "routes": [
