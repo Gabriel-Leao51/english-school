@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/english-school/server/main.server.mjs",
+      "use": "@vercel/node@20.13.0"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/english-school/server/main.server.mjs"
+    }
+  ]
+}

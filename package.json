@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production",
+    "build:ssr": "npm run build && ng run english-school:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:english-school": "node dist/english-school/server/server.mjs"
@@ -49,5 +50,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.2"
+  },
+  "type": "module",
+  "main": "dist/english-school/server/main.server.mjs",
+  "engines": {
+    "node": "20.x"
   }
 }
