@@ -5,6 +5,7 @@ const nodemailer = require("nodemailer");
 // Acessa as variáveis de ambiente
 const gmailUser = process.env.GMAIL_USER;
 const gmailPassword = process.env.GMAIL_PASSWORD;
+const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 // Configurações do Nodemailer
 const transporter = nodemailer.createTransport({
@@ -13,6 +14,17 @@ const transporter = nodemailer.createTransport({
     user: gmailUser,
     pass: gmailPassword,
   },
+});
+
+router.get("/google-maps-api-key", (req, res) => {
+  const allowedReferer = "https://keystone-english-frontend.onrender.com"; // Substitua pelo seu domínio, incluindo o protocolo
+  const referer = req.headers.referer;
+
+  if (referer && referer.startsWith(allowedReferer)) {
+    res.json({ apiKey: googleMapsApiKey });
+  } else {
+    res.status(403).send("Forbidden");
+  }
 });
 
 router.post("/", async (req, res) => {

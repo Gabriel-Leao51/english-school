@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment.prod';
+import { ContatoService } from '../../services/contato.service';
 
 @Component({
   selector: 'app-mapa',
@@ -16,21 +17,25 @@ import { environment } from '../../../environments/environment.prod';
   styleUrl: `./mapa.component.css`,
 })
 export class MapaComponent implements AfterViewInit {
+  googleMapsApiKey!: string;
   @ViewChild('mapaContainer', { static: true }) mapaContainer!: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private contatoService: ContatoService
+  ) {}
 
   ngAfterViewInit(): void {
-    this.carregarAPI();
+    this.contatoService.getGoogleMapsApiKey().subscribe((data) => {
+      this.googleMapsApiKey = data.apiKey;
+      this.carregarAPI();
+    });
   }
 
   private carregarAPI(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const apiKey = environment.googleMapsApiKey;
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=inicializarMapa&loading=async`;
-      script.async = true;
-      script.defer = true;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleMapsApiKey}`;
       document.body.appendChild(script);
       (window as any).inicializarMapa = this.inicializarMapa.bind(this);
     }
