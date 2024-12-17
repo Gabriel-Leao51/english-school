@@ -11,8 +11,8 @@ import { BlogService } from '../../services/blog.service';
 import { Artigo } from '../../models/artigo.model';
 import { ModalComponent } from '../../shared/modal/modal.component';
 
-import { Cloudinary } from '@cloudinary/url-gen';
-import { environment } from '../../../environments/environment.prod';
+// import { Cloudinary } from '@cloudinary/url-gen';
+// import { environment } from '../../../environments/environment';
 
 declare const cloudinary: any;
 
