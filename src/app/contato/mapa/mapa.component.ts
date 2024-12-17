@@ -34,7 +34,9 @@ export class MapaComponent implements AfterViewInit {
   private carregarAPI(): void {
     if (isPlatformBrowser(this.platformId)) {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleMapsApiKey}`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleMapsApiKey}&callback=inicializarMapa&loading=async`;
+      script.async = true;
+      script.defer = true;
       document.body.appendChild(script);
       (window as any).inicializarMapa = this.inicializarMapa.bind(this);
     }
