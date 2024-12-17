@@ -17,7 +17,8 @@ const transporter = nodemailer.createTransport({
 });
 
 router.get("/google-maps-api-key", (req, res) => {
-  const allowedReferer = "https://keystone-english-frontend.onrender.com"; // Substitua pelo seu domínio, incluindo o protocolo
+  const allowedReferer =
+    "https://keystone-english-frontend.onrender.com/contato"; // Substitua pelo seu domínio, incluindo o protocolo
   const referer = req.headers.referer;
 
   if (referer && referer.startsWith(allowedReferer)) {
