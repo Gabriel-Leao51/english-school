@@ -244,11 +244,11 @@
   .logo {
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
   }
   .logo h1 {
     font-size: 1.1rem;
-    width: 100%;
+    width: 70%;
   }
   .logo img {
     width: 100%;
@@ -269,5 +269,9 @@
     padding: 0.3rem 0.7rem; /* Reduz um pouco o padding dos botões */
     font-size: 0.6rem; /* Reduz um pouco o tamanho da fonte dos botões */
     width: 70%;
+  }
+
+  .user-dropdown a {
+    font-size: small;
   }
 }
