@@ -3,14 +3,11 @@
   color: var(--cor-texto-primaria);
   padding: 1rem 0;
   border-radius: 16px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 90%;
   margin: 0 auto;
@@ -19,6 +16,7 @@
 .logo {
   display: flex;
   align-items: center;
+  margin-right: auto;
 }
 
 .logo img {
@@ -239,5 +237,37 @@
 
   .hidden {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+  }
+  .logo h1 {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  .logo img {
+    width: 100%;
+    margin-right: -60px;
+  }
+
+  .nav li {
+    margin: 15px 0;
+  }
+
+  .auth-btn {
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 8px;
+  }
+
+  .btn {
+    padding: 0.3rem 0.7rem; /* Reduz um pouco o padding dos botões */
+    font-size: 0.6rem; /* Reduz um pouco o tamanho da fonte dos botões */
+    width: 70%;
   }
 }
