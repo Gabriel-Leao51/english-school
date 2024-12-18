@@ -6,11 +6,6 @@
   padding: 2rem;
 }
 
-.artigo-detalhes h2 {
-  color: var(--cor-secundaria);
-  margin-bottom: 1rem;
-}
-
 .artigo-detalhes img {
   height: 400px;
   margin-bottom: 1rem;
@@ -54,5 +49,24 @@
   }
   .card {
     width: 100%; /* Os cards ocupam toda a largura */
+  }
+}
+
+@media (max-width: 480px) {
+  .artigo-detalhes {
+    padding: 20px 10px;
+  }
+  .artigo-detalhes img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content-container {
+    width: 100%;
+    padding-right: 30px;
+  }
+  .content-container p {
+    font-size: 0.8em;
   }
 }

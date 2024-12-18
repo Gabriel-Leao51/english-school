@@ -82,3 +82,40 @@
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 480px) {
+  .card {
+    height: 180px;
+  }
+
+  .card-body {
+    padding-left: 10px;
+    background-color: rgb(0, 0, 0, 0.7);
+  }
+
+  .card-title {
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+
+  .card-text {
+    font-size: 0.6em;
+    margin-bottom: 5px;
+  }
+  .card img {
+    width: 20%;
+    height: 200px;
+    object-fit: cover;
+    padding: 0 10px;
+    overflow: visible;
+  }
+
+  .btn-primary {
+    font-size: 0.6em;
+    padding: 4px 8px;
+  }
+
+  .artigo-control {
+    font-size: 0;
+  }
+}

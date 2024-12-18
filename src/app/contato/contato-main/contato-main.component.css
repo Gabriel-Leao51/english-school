@@ -209,3 +209,9 @@
     align-self: initial;
   }
 }
+
+@media (max-width: 480px) {
+  .contato-formulario {
+    width: 85%;
+  }
+}

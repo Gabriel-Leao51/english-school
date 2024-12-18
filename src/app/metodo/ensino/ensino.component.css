@@ -67,3 +67,13 @@
     margin-right: 15px;
   }
 }
+
+@media (max-width: 480px) {
+  #ensino h2 {
+    font-size: 1.2em;
+  }
+
+  #ensino p {
+    font-size: 0.9em;
+  }
+}

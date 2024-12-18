@@ -3,7 +3,6 @@
 <div *ngIf="isLoading">Carregando artigo...</div>
 
 <div class="artigo-detalhes" *ngIf="!isLoading && artigo">
-  <h2>{{ artigo.title }}</h2>
   <img
     *ngIf="artigo.imageUrl"
     [src]="artigo.imageUrl"

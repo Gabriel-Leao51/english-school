@@ -60,3 +60,17 @@
     flex-direction: column; /* Texto sempre em cima em telas menores */
   }
 }
+
+@media (max-width: 480px) {
+  .sobre-escola-titulo {
+    font-size: 1.1em;
+  }
+
+  .sobre-escola-descricao {
+    font-size: 0.9em;
+  }
+
+  .sobre-escola-imagem {
+    width: 95%;
+  }
+}

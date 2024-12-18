@@ -14,3 +14,13 @@ p {
   height: 400px;
   margin: 0;
 }
+
+@media (max-width: 480px) {
+  h2,
+  p {
+    margin-left: 10px;
+  }
+  .mapa {
+    height: 250px;
+  }
+}

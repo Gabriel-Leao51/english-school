@@ -80,3 +80,29 @@
   margin-bottom: 8px;
   color: var(--cor-texto-primaria);
 }
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  #professores-container {
+    padding: 0 10px;
+  }
+
+  .card {
+    width: 89%;
+  }
+
+  .card img {
+    width: 35%;
+  }
+
+  .title {
+    margin: 0 20px;
+  }
+}

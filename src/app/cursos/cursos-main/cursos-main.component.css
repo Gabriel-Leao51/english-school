@@ -93,7 +93,7 @@ p {
     255,
     255,
     255,
-    0.8
+    0.7
   ); /* Cor de fundo semi-transparente */
   padding: 20px;
   border-radius: 8px;
@@ -178,7 +178,7 @@ p {
   }
 
   .text-container p {
-    font-size: medium;
+    font-size: 0.9em;
   }
 
   .card {
@@ -186,6 +186,9 @@ p {
     width: 70%; /* Ajuste a largura dos cards em telas menores */
   }
 
+  #h2-cat {
+    width: 60%;
+  }
   .faixa-etaria {
     width: 30%;
     position: relative;

@@ -57,7 +57,7 @@
 .comment-form-title {
   margin-bottom: 15px;
   font-size: 1.5em;
-  color: var(--cor-secundaria);
+  color: var(--cor-texto-primaria);
 }
 
 .comment-form-label {
@@ -99,5 +99,15 @@
 @media (max-width: 768px) {
   .comment {
     max-width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .comments-title {
+    font-size: 1.2em;
+  }
+  .comment {
+    max-width: 100%;
+    font-size: 0.9em;
   }
 }

@@ -81,3 +81,14 @@ button {
 button:hover {
   background-color: var(--cor-fundo);
 }
+
+@media (max-width: 480px) {
+  .blog-main {
+    padding: 20px 10px;
+  }
+  .search-container {
+    flex-direction: column;
+    margin-right: 8em;
+    gap: 10px;
+  }
+}

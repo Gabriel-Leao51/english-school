@@ -27,3 +27,17 @@
   font-size: 1.125rem; /* Tamanho da fonte do parágrafo */
   line-height: 1.6; /* Espaçamento entre linhas */
 }
+
+@media (max-width: 480px) {
+  .blog-banner h2 {
+    font-size: 1.5em;
+  }
+
+  .blog-banner p {
+    font-size: 0.9em;
+  }
+
+  .blog-banner {
+    padding: 15px 0;
+  }
+}

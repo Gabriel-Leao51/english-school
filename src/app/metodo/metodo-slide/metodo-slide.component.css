@@ -101,3 +101,24 @@ p {
 .navigation-dots span.active {
   background-color: var(--cor-primaria);
 }
+
+@media (max-width: 480px) {
+  .slide.active {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .image-container {
+    width: 85%;
+    margin-right: 40px;
+    order: -1;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+}
