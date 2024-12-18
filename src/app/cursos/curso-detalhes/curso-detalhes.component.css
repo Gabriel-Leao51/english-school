@@ -169,3 +169,13 @@
     font-size: 2em;
   }
 }
+
+@media (max-width: 480px) {
+  .image-container {
+    width: 90%;
+  }
+
+  .secao-principal h2 {
+    font-size: 1.5em;
+  }
+}
