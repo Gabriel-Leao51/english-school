@@ -123,6 +123,10 @@
   font-weight: bold;
 }
 
+.curso-info {
+  display: inline;
+}
+
 .conteudo li {
   color: var(--cor-texto-secundaria);
 }
@@ -189,6 +193,10 @@
 
   .informacoes h3,
   .conteudo h3 {
-    font-size: 1em;
+    font-size: 1.2em;
+  }
+
+  .curso-info {
+    display: block;
   }
 }

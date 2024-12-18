@@ -21,32 +21,52 @@
           <ul>
             <li>
               <i class="fas fa-chalkboard-teacher"></i>
-              <strong>Público:</strong> {{ curso.modalidade }}
+              <strong>Público:</strong>
+              <p class="curso-info">
+                {{ curso.modalidade }}
+              </p>
             </li>
             <li>
               <i class="fas fa-signal"></i>
-              <strong>Nível:</strong> {{ curso.nivel }}
+              <strong>Nível:</strong>
+              <p class="curso-info">
+                {{ curso.nivel }}
+              </p>
             </li>
             <li>
               <i class="fas fa-user-tie"></i>
-              <strong>Professor:</strong> {{ curso.professor.nome }}
+              <strong>Professor:</strong>
+              <p class="curso-info">
+                {{ curso.professor.nome }}
+              </p>
             </li>
             <li>
               <i class="fas fa-clock"></i>
-              <strong>Duração:</strong> {{ curso.duracao }}
+              <strong>Duração:</strong>
+              <p class="curso-info">
+                {{ curso.duracao }}
+              </p>
             </li>
             <li>
               <i class="fas fa-hourglass-half"></i>
-              <strong>Carga Horária:</strong> {{ curso.cargaHoraria }}
+              <strong>Carga Horária:</strong>
+              <p class="curso-info">
+                {{ curso.cargaHoraria }}
+              </p>
             </li>
             <li>
               <i class="fas fa-globe-americas"></i>
-              <strong>Idioma:</strong> {{ curso.idioma }}
+              <strong>Idioma:</strong>
+              <p class="curso-info">
+                {{ curso.idioma }}
+              </p>
             </li>
             <li>
               <i class="fas fa-money-bill-wave"></i>
               <strong>Investimento:</strong>
-              {{ curso.investimento | currency : "BRL" }}
+              <p class="curso-info">
+                {{ curso.investimento | currency : "BRL" }}
+              </p>
             </li>
           </ul>
         </div>
