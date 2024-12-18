@@ -82,3 +82,16 @@
     margin-right: 0;
   }
 }
+
+@media (max-width: 480px) {
+  .image-container {
+    width: 90%; /* Ocupa o espaço disponível */
+  }
+
+  .slogan {
+    font-size: 1.3em;
+  }
+  .btn {
+    padding: 4px 8px;
+  }
+}
