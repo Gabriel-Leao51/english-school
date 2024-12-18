@@ -171,11 +171,15 @@
 }
 
 @media (max-width: 480px) {
-  .image-container {
+  .secao-principal .image-container {
     width: 90%;
   }
 
   .secao-principal h2 {
     font-size: 1.5em;
+  }
+
+  .secao-secundaria {
+    padding: 0;
   }
 }
