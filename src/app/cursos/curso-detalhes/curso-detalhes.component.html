@@ -21,52 +21,32 @@
           <ul>
             <li>
               <i class="fas fa-chalkboard-teacher"></i>
-              <strong>Público:</strong>
-              <p class="curso-info">
-                {{ curso.modalidade }}
-              </p>
+              <strong>Público:</strong> &nbsp; {{ curso.modalidade }}
             </li>
             <li>
               <i class="fas fa-signal"></i>
-              <strong>Nível:</strong>
-              <p class="curso-info">
-                {{ curso.nivel }}
-              </p>
+              <strong>Nível:</strong> &nbsp; {{ curso.nivel }}
             </li>
             <li>
               <i class="fas fa-user-tie"></i>
-              <strong>Professor:</strong>
-              <p class="curso-info">
-                {{ curso.professor.nome }}
-              </p>
+              <strong>Professor:</strong> &nbsp; {{ curso.professor.nome }}
             </li>
             <li>
               <i class="fas fa-clock"></i>
-              <strong>Duração:</strong>
-              <p class="curso-info">
-                {{ curso.duracao }}
-              </p>
+              <strong>Duração:</strong> &nbsp; {{ curso.duracao }}
             </li>
             <li>
               <i class="fas fa-hourglass-half"></i>
-              <strong>Carga Horária:</strong>
-              <p class="curso-info">
-                {{ curso.cargaHoraria }}
-              </p>
+              <strong>Carga Horária:</strong> &nbsp;{{ curso.cargaHoraria }}
             </li>
             <li>
               <i class="fas fa-globe-americas"></i>
-              <strong>Idioma:</strong>
-              <p class="curso-info">
-                {{ curso.idioma }}
-              </p>
+              <strong>Idioma:</strong> &nbsp; {{ curso.idioma }}
             </li>
             <li>
               <i class="fas fa-money-bill-wave"></i>
-              <strong>Investimento:</strong>
-              <p class="curso-info">
-                {{ curso.investimento | currency : "BRL" }}
-              </p>
+              <strong>Investimento:</strong> &nbsp;
+              {{ curso.investimento | currency : "BRL" }}
             </li>
           </ul>
         </div>

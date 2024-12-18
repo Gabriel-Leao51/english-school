@@ -7,7 +7,7 @@
 .detalhes-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -64,13 +64,6 @@
   );
 }
 
-.banner-content,
-.detalhes-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* Alinha os itens ao topo */
-}
-
 .secao-secundaria .coluna-esquerda {
   width: 45%;
 }
@@ -121,10 +114,6 @@
 
 .informacoes strong {
   font-weight: bold;
-}
-
-.curso-info {
-  display: inline;
 }
 
 .conteudo li {
@@ -183,10 +172,7 @@
     font-size: 1.5em;
   }
 
-  .secao-secundaria {
-    padding: 0;
-  }
-
+  .secao-secundaria,
   .detalhes-content {
     padding: 0;
   }
@@ -196,7 +182,15 @@
     font-size: 1.2em;
   }
 
-  .curso-info {
-    display: block;
+  .secao-secundaria .coluna-esquerda {
+    width: 60%;
+  }
+
+  .secao-secundaria .coluna-direita {
+    width: 40%;
+  }
+
+  i {
+    display: none;
   }
 }

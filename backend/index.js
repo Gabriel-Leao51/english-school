@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
+    // "http://localhost:4200",
     methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
     allowedHeaders: ["Content-Type", "Authorization"], // Cabeçalhos permitidos
   })
