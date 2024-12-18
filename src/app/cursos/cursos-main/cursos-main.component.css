@@ -161,3 +161,30 @@ p {
     position: absolute;
   }
 }
+
+@media (max-width: 480px) {
+  .image-container {
+    width: 90%; /* Ajuste a largura da imagem e do texto */
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+
+  .text-container p {
+    font-size: medium;
+  }
+
+  .card {
+    padding-top: 0;
+    width: 80%; /* Ajuste a largura dos cards em telas menores */
+  }
+
+  .faixa-etaria {
+    width: 50%;
+    position: relative;
+    display: block;
+    margin: 0;
+  }
+}

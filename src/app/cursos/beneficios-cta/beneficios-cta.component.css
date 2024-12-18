@@ -100,3 +100,14 @@
     width: 90%;
   }
 }
+
+@media (max-width: 480px) {
+  .beneficios h2,
+  .cta h2 {
+    font-size: 1.5em;
+  }
+
+  .beneficio-item {
+    width: 80%;
+  }
+}
