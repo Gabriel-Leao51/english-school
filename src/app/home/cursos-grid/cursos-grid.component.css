@@ -73,6 +73,6 @@
 
 @media (min-width: 768px) {
   .curso-grid {
-    justify-content: space-around; /* Distribui os cards uniformemente */
+    justify-content: space-around;
   }
 }
