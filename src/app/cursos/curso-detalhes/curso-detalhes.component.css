@@ -182,4 +182,13 @@
   .secao-secundaria {
     padding: 0;
   }
+
+  .detalhes-content {
+    padding: 0;
+  }
+
+  .informacoes h3,
+  .conteudo h3 {
+    font-size: 1em;
+  }
 }
