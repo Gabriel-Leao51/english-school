@@ -91,4 +91,8 @@ button:hover {
     margin-right: 8em;
     gap: 10px;
   }
+
+  .filter-button {
+    margin: 0;
+  }
 }
