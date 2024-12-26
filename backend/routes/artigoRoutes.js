@@ -85,7 +85,7 @@ router.post("/:id/comentarios", authMiddleware, async (req, res) => {
 
     const novoComentario = {
       content,
-      userId: new mongoose.Types.ObjectId(userId), // userId agora vem do req.body
+      userId: mongoose.Types.ObjectId.createFromTime(userId), // userId agora vem do req.body
       author, // author também vem do req.body
       createdAt: new Date(),
     };

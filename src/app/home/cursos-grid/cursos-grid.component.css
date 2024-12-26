@@ -76,3 +76,20 @@
     justify-content: space-around;
   }
 }
+
+@media (max-width: 480px) {
+  .curso-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .curso-titulo {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .curso-descricao {
+    font-size: 0.7rem;
+    max-width: 80%;
+  }
+}
