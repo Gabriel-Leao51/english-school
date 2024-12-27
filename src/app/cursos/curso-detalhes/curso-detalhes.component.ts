@@ -1,21 +1,28 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { CurrencyPipe, NgFor, NgIf, isPlatformBrowser } from '@angular/common';
+import {
+  AsyncPipe,
+  CurrencyPipe,
+  NgFor,
+  NgIf,
+  isPlatformBrowser,
+} from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Curso } from '../../models/curso.model';
 import { CursoService } from '../../services/curso.service';
 
 import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
+import { Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-curso-detalhes',
   standalone: true,
-  imports: [NgIf, NgFor, CurrencyPipe, CarregarImagemDirective],
+  imports: [NgIf, NgFor, CurrencyPipe, CarregarImagemDirective, AsyncPipe],
   templateUrl: './curso-detalhes.component.html',
   styleUrls: ['./curso-detalhes.component.css'],
 })
 export class CursoDetalhesComponent implements OnInit {
-  curso: Curso | undefined; // Variável para armazenar os detalhes do curso
+  curso$!: Observable<Curso | undefined>; // Use um Observable para o curso
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -29,31 +36,24 @@ export class CursoDetalhesComponent implements OnInit {
   }
 
   obterCurso(): void {
-    const id = this.route.snapshot.paramMap.get('id'); // Obtém o ID da URL
-
     if (isPlatformBrowser(this.platformId)) {
-      // Código que utiliza window
+      const id = this.route.snapshot.paramMap.get('id');
       if (id) {
-        this.cursoService.obterCursoPorId(id).subscribe((curso: Curso) => {
-          this.curso = curso;
-        });
+        this.curso$ = this.cursoService.obterCursoPorId(id).pipe();
       }
     }
   }
 
-  exibirNomeProfessor(): string {
-    // Verifica se o curso e o professor estão carregados antes de acessar o nome
-    if (this.curso && this.curso.professor) {
-      return this.curso.professor.nome;
-    } else {
-      return 'Professor não encontrado';
-    }
-  }
-
   matricular() {
-    if (this.curso) {
-      this.cursoService.selecionarCurso(this.curso);
-      this.router.navigate(['/contato']);
-    }
+    this.curso$
+      .pipe(
+        take(1) // Pega o primeiro valor emitido pelo Observable (o curso) e depois completa
+      )
+      .subscribe((curso) => {
+        if (curso) {
+          this.cursoService.selecionarCurso(curso);
+          this.router.navigate(['/contato']);
+        }
+      });
   }
 }

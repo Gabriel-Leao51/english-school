@@ -1,27 +1,34 @@
-<app-blog-banner [artigo]="artigo" [isArticleDetail]="true" />
+<!-- O banner agora usa o async pipe -->
+<app-blog-banner [artigo]="artigo$ | async" [isArticleDetail]="true" />
 
 <div *ngIf="isLoading">Carregando artigo...</div>
 
-<div class="artigo-detalhes" *ngIf="!isLoading && artigo">
-  <img
-    *ngIf="artigo.imageUrl"
-    [src]="artigo.imageUrl"
-    alt="{{ artigo.title }}"
-  />
-  <div class="content-container">
-    <p [innerHTML]="artigo.content | nl2br">{{ artigo.content }}</p>
+<!-- O conteúdo do artigo agora usa o async pipe -->
+<ng-container *ngIf="artigo$ | async as artigo; else notFound">
+  <div class="artigo-detalhes">
+    <img
+      *ngIf="artigo.imageUrl"
+      [src]="artigo.imageUrl"
+      alt="{{ artigo.title }}"
+    />
+    <div class="content-container">
+      <p [innerHTML]="artigo.content | nl2br"></p>
+    </div>
+    <p>
+      <small>Publicado em: {{ artigo.createdAt | date }}</small
+      ><br />
+      <small>Por: {{ artigo.author }}</small
+      ><br />
+      <small>Categoria: {{ artigo.category }}</small>
+    </p>
+
+    <p><a [routerLink]="['/blog']">Voltar para o Blog</a></p>
+
+    <app-artigo-comentarios [artigoId]="artigo._id"></app-artigo-comentarios>
   </div>
-  <p>
-    <small>Publicado em: {{ artigo.createdAt | date }}</small
-    ><br />
-    <small>Por: {{ artigo.author }}</small
-    ><br />
-    <small>Categoria: {{ artigo.category }}</small>
-  </p>
+</ng-container>
 
-  <p><a [routerLink]="['/blog']">Voltar para o Blog</a></p>
-
-  <app-artigo-comentarios [artigoId]="artigo._id"></app-artigo-comentarios>
-</div>
-
-<div *ngIf="!isLoading && !artigo">Artigo não encontrado.</div>
+<!-- Template para quando o artigo não é encontrado -->
+<ng-template #notFound>
+  <div *ngIf="!isLoading">Artigo não encontrado.</div>
+</ng-template>

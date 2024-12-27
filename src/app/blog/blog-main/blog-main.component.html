@@ -32,10 +32,12 @@
     </div>
   </div>
 
+  <!-- Indicador de carregamento -->
   <div *ngIf="isLoading">
     <p>Carregando artigos...</p>
   </div>
 
+  <!-- Botão para criar artigo (admin) -->
   <button
     *ngIf="authService.getRole() === 'admin'"
     (click)="abrirModalNovoPost()"
@@ -43,8 +45,9 @@
     Criar Artigo
   </button>
 
-  <div *ngIf="!isLoading && artigosFiltrados().length > 0">
-    <div *ngFor="let artigo of artigosFiltrados()">
+  <!-- Listagem de artigos -->
+  <div *ngIf="artigos$ | async as artigos; else noArticles">
+    <div *ngFor="let artigo of artigosFiltrados(artigos)">
       <app-artigo-card
         [artigo]="artigo"
         [modalContainer]="modalContainer"
@@ -55,16 +58,19 @@
     </div>
   </div>
 
-  <div *ngIf="!isLoading && artigosFiltrados().length === 0">
-    <p>Ainda não há nenhum artigo. Clique aqui para criar o primeiro:</p>
-
-    <button
-      *ngIf="authService.getRole() === 'admin'"
-      (click)="abrirModalNovoPost()"
-    >
-      Criar Artigo
-    </button>
-  </div>
+  <!-- Mensagem se não houver artigos -->
+  <ng-template #noArticles>
+    <div *ngIf="!isLoading">
+      <p>Ainda não há nenhum artigo. Clique aqui para criar o primeiro:</p>
+      <!-- Botão para criar artigo duplicado para manter o layout consistente -->
+      <button
+        *ngIf="authService.getRole() === 'admin'"
+        (click)="abrirModalNovoPost()"
+      >
+        Criar Artigo
+      </button>
+    </div>
+  </ng-template>
 </section>
 
 <ng-template #modal></ng-template>

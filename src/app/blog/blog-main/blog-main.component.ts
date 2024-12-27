@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { BlogService } from '../../services/blog.service';
@@ -9,19 +9,19 @@ import { Artigo } from '../../models/artigo.model';
 import { ArtigoComponent } from '../artigo/artigo-card/artigo-card.component';
 import { PostFormComponent } from '../post-form/post-form.component';
 
-import { finalize, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-blog-main',
   standalone: true,
-  imports: [ArtigoComponent, NgFor, NgIf, ReactiveFormsModule],
+  imports: [ArtigoComponent, NgFor, NgIf, ReactiveFormsModule, AsyncPipe],
   templateUrl: './blog-main.component.html',
   styleUrl: './blog-main.component.css',
 })
 export class BlogMainComponent implements OnInit {
   @ViewChild('modal', { read: ViewContainerRef, static: true })
   modalContainer!: ViewContainerRef;
-  artigos: Artigo[] = [];
+  artigos$!: Observable<Artigo[]>;
   isLoading = true;
   showModal = false;
   filtroBusca = new FormControl('');
@@ -47,20 +47,9 @@ export class BlogMainComponent implements OnInit {
 
   reloadArtigos() {
     this.isLoading = true;
-    this.blogService
-      .getArtigos()
-      .pipe(
-        tap((artigos) => (this.artigos = artigos)),
-        finalize(() => (this.isLoading = false))
-      )
-      .subscribe({
-        error: (error) => {
-          console.error('Erro ao buscar artigos:', error);
-        },
-        complete: () => {
-          console.log('Recarregamento de artigos completo.');
-        },
-      });
+    this.artigos$ = this.blogService.getArtigos().pipe(
+      tap(() => (this.isLoading = false)) // Atualize isLoading para false após o carregamento
+    );
   }
 
   alterarCriterio(novoCriterio: 'titulo' | 'autor' | 'categoria') {
@@ -68,14 +57,14 @@ export class BlogMainComponent implements OnInit {
     this.filtroBusca.reset(); // Limpa o campo de busca ao mudar o critério
   }
 
-  artigosFiltrados(): Artigo[] {
+  artigosFiltrados(artigos: Artigo[]): Artigo[] {
     const termoBusca = this.filtroBusca.value?.toLowerCase().trim();
 
     if (!termoBusca) {
-      return this.artigos; // Retorna todos os artigos se o campo de busca estiver vazio
+      return artigos;
     }
 
-    return this.artigos.filter((artigo) => {
+    return artigos.filter((artigo) => {
       switch (this.criterioBusca) {
         case 'titulo':
           return artigo.title.toLowerCase().includes(termoBusca);

@@ -22,22 +22,27 @@
 <section class="categorias-section">
   <h2 id="h2-cat">Cursos Disponíveis</h2>
   <div class="container">
-    <div class="categorias">
-      <div *ngFor="let modalidade of modalidades" class="card">
-        <h3>
-          {{ modalidade }}
-          <span class="faixa-etaria">{{ obterFaixaEtaria(modalidade) }}</span>
-        </h3>
-        <ul>
-          <li *ngFor="let curso of cursos">
-            <a
-              *ngIf="curso.modalidade === modalidade"
-              [routerLink]="['/cursos', curso._id]"
-              >{{ curso.titulo }}</a
-            >
-          </li>
-        </ul>
+    <div *ngIf="cursos$ | async as cursos; else loading">
+      <div class="categorias">
+        <div *ngFor="let modalidade of modalidades" class="card">
+          <h3>
+            {{ modalidade }}
+            <span class="faixa-etaria">{{ obterFaixaEtaria(modalidade) }}</span>
+          </h3>
+          <ul>
+            <li *ngFor="let curso of cursos">
+              <a
+                *ngIf="curso.modalidade === modalidade"
+                [routerLink]="['/cursos', curso._id]"
+                >{{ curso.titulo }}</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+    <ng-template #loading>
+      <p>Carregando cursos...</p>
+    </ng-template>
   </div>
 </section>

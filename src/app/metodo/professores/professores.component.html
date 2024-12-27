@@ -7,30 +7,37 @@
     </p>
   </div>
   <div id="professores-container" class="container">
-    <div
-      *ngFor="let professor of professores; let i = index"
-      class="card-container"
-      [class.reverse]="i % 2 === 1"
-    >
-      <div class="card">
-        <img
-          [src]="professor.foto"
-          class="card-img-top"
-          [alt]="professor.nome"
-        />
-        <div class="card-body">
-          <h3>
-            {{ professor.nome }}
-          </h3>
-          <p>{{ professor.biografia }}</p>
-          <p>
-            <small class="text-muted">
-              Formação: {{ professor.formacao }} <br />
-              Especialidades: {{ professor.especialidades }}
-            </small>
-          </p>
+    <!-- Use *ngIf com async pipe e um template de loading -->
+    <div *ngIf="professores$ | async as professores; else loading">
+      <div
+        *ngFor="let professor of professores; let i = index"
+        class="card-container"
+        [class.reverse]="i % 2 === 1"
+      >
+        <div class="card">
+          <img
+            [src]="professor.foto"
+            class="card-img-top"
+            [alt]="professor.nome"
+          />
+          <div class="card-body">
+            <h3>
+              {{ professor.nome }}
+            </h3>
+            <p>{{ professor.biografia }}</p>
+            <p>
+              <small class="text-muted">
+                Formação: {{ professor.formacao }} <br />
+                Especialidades: {{ professor.especialidades }}
+              </small>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Template de loading -->
+    <ng-template #loading>
+      <p>Carregando professores...</p>
+    </ng-template>
   </div>
 </section>

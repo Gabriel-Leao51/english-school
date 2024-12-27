@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { Curso } from '../../models/curso.model';
 import { CursoService } from '../../services/curso.service';
 
 import { CarregarImagemDirective } from '../../directives/imgLoader.directive';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cursos-main',
   standalone: true,
-  imports: [NgIf, NgFor, RouterLink, CarregarImagemDirective],
+  imports: [NgIf, NgFor, RouterLink, CarregarImagemDirective, AsyncPipe],
   providers: [CursoService],
   templateUrl: './cursos-main.component.html',
   styleUrls: ['./cursos-main.component.css'],
 })
 export class CursosMainComponent implements OnInit {
-  cursos: Curso[] = [];
+  cursos$!: Observable<Curso[]>;
   modalidades: string[] = [
     'Crianças',
     'Adolescentes',
@@ -31,9 +32,7 @@ export class CursosMainComponent implements OnInit {
   }
 
   obterCursos(): void {
-    this.cursoService
-      .obterCursos()
-      .subscribe((cursos: Curso[]) => (this.cursos = cursos));
+    this.cursos$ = this.cursoService.obterCursos();
   }
 
   obterFaixaEtaria(modalidade: string): string {

@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 
 import { ProfessorService } from '../../services/professor.service';
 import { Professor } from '../../models/professor.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-professores',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgIf, NgFor, AsyncPipe],
   templateUrl: './professores.component.html',
   styleUrl: './professores.component.css',
 })
 export class ProfessoresComponent implements OnInit {
-  professores: Professor[] = [];
+  professores$!: Observable<Professor[]>;
 
   constructor(private professorService: ProfessorService) {}
 
@@ -21,8 +22,6 @@ export class ProfessoresComponent implements OnInit {
   }
 
   obterProfessores(): void {
-    this.professorService
-      .getProfessores()
-      .subscribe((professores) => (this.professores = professores));
+    this.professores$ = this.professorService.getProfessores();
   }
 }

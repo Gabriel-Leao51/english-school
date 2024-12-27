@@ -1,4 +1,4 @@
-<div *ngIf="curso" class="curso-detalhes">
+<div *ngIf="curso$ | async as curso; else loading" class="curso-detalhes">
   <section class="secao-principal">
     <div class="banner-content">
       <div class="texto-principal">
@@ -21,31 +21,32 @@
           <ul>
             <li>
               <i class="fas fa-chalkboard-teacher"></i>
-              <strong>Público:</strong> &nbsp; {{ curso.modalidade }}
+              <strong>Público:</strong>   {{ curso.modalidade }}
             </li>
             <li>
               <i class="fas fa-signal"></i>
-              <strong>Nível:</strong> &nbsp; {{ curso.nivel }}
+              <strong>Nível:</strong>   {{ curso.nivel }}
             </li>
             <li>
               <i class="fas fa-user-tie"></i>
-              <strong>Professor:</strong> &nbsp; {{ curso.professor.nome }}
+              <strong>Professor:</strong>  
+              {{ curso?.professor?.nome || "Professor não encontrado" }}
             </li>
             <li>
               <i class="fas fa-clock"></i>
-              <strong>Duração:</strong> &nbsp; {{ curso.duracao }}
+              <strong>Duração:</strong>   {{ curso.duracao }}
             </li>
             <li>
               <i class="fas fa-hourglass-half"></i>
-              <strong>Carga Horária:</strong> &nbsp;{{ curso.cargaHoraria }}
+              <strong>Carga Horária:</strong>   {{ curso.cargaHoraria }}
             </li>
             <li>
               <i class="fas fa-globe-americas"></i>
-              <strong>Idioma:</strong> &nbsp; {{ curso.idioma }}
+              <strong>Idioma:</strong>   {{ curso.idioma }}
             </li>
             <li>
               <i class="fas fa-money-bill-wave"></i>
-              <strong>Investimento:</strong> &nbsp;
+              <strong>Investimento:</strong>  
               {{ curso.investimento | currency : "BRL" }}
             </li>
           </ul>
@@ -71,3 +72,7 @@
     </div>
   </section>
 </div>
+
+<ng-template #loading>
+  <p>Carregando detalhes do curso...</p>
+</ng-template>
